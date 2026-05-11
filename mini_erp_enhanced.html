@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini ERP - 制造业数字化管理系统</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a',950:'#172554' },
+        accent: { 50:'#fefce8',400:'#facc15',500:'#eab308',600:'#ca8a04' },
+        dark: { 800:'#1e293b',900:'#0f172a',950:'#020617' }
+      },
+      fontFamily: { sans: ['Noto Sans SC','system-ui','sans-serif'] }
+    }
+  }
+}
+</script>
+<style>
+body { font-family: 'Noto Sans SC', system-ui, sans-serif; }
+.card-hover { transition: all 0.3s ease; }
+.card-hover:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+.sidebar-item { transition: all 0.2s; }
+.sidebar-item:hover, .sidebar-item.active { background: rgba(59,130,246,0.1); border-right: 3px solid #3b82f6; }
+.tag-pulse { animation: tagPulse 2s ease-in-out infinite; }
+@keyframes tagPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
+.dark-grid-bg { background-image: radial-gradient(circle, #334155 1px, transparent 1px); background-size: 24px 24px; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.modal-overlay { background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); }
+.animate-fade-in { animation: fadeIn 0.3s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-800 overflow-hidden">
+
+<!-- Toast -->
+<div id="toast" class="fixed top-4 right-4 z-[100] transform translate-x-full transition-transform duration-300">
+<div class="bg-white rounded-xl shadow-lg border border-gray-100 p-4 flex items-center gap-3 min-w-72">
+<div id="toast-icon" class="w-10 h-10 rounded-xl flex items-center justify-center bg-green-100 text-green-600"><i class="fas fa-check-circle"></i></div>
+<div class="flex-1">
+<p id="toast-title" class="font-semibold text-gray-900 text-sm"></p>
+<p id="toast-msg" class="text-xs text-gray-500 mt-0.5"></p>
+</div>
+<button onclick="hideToast()" class="text-gray-400 hover:text-gray-600"><i class="fas fa-times"></i></button>
+</div>
+</div>
+
+<!-- 登录页 -->
+<div id="loginPage" class="fixed inset-0 z-50 flex">
+<div class="w-full lg:w-1/2 flex flex-col justify-center items-center p-8 lg:p-16 bg-white">
+<div class="w-full max-w-md">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center text-white text-lg font-bold"><i class="fas fa-industry"></i></div>
+<span class="text-xl font-bold text-gray-900">Mini ERP</span>
+</div>
+<p class="text-gray-500 mb-8 text-sm">轻量级制造业数字化管理系统</p>
+<h2 class="text-3xl font-bold text-gray-900 mb-2">欢迎回来</h2>
+<p class="text-gray-500 mb-8">登录您的工厂管理账户</p>
+<form onsubmit="handleLogin(event)" class="space-y-5">
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-1.5">工厂代码 / 手机号</label>
+<div class="relative">
+<i class="fas fa-building absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+<input type="text" id="loginCode" value="FZ-2026-001" class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all text-sm">
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-1.5">密码</label>
+<div class="relative">
+<i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+<input type="password" id="loginPwd" value="123456" class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all text-sm">
+</div>
+</div>
+<button type="submit" class="w-full py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl transition-all shadow-lg shadow-brand-200">
+<i class="fas fa-sign-in-alt mr-2"></i>登录系统
+</button>
+</form>
+<div class="mt-8 pt-6 border-t border-gray-100">
+<p class="text-center text-sm text-gray-500 mb-4">快速切换角色体验</p>
+<div class="grid grid-cols-2 gap-2">
+<button onclick="quickLogin('admin')" class="py-2 border border-gray-200 rounded-lg hover:bg-gray-50 text-xs font-medium text-gray-600 transition-all"><i class="fas fa-crown text-yellow-500 mr-1"></i>超级管理员</button>
+<button onclick="quickLogin('owner')" class="py-2 border border-gray-200 rounded-lg hover:bg-gray-50 text-xs font-medium text-gray-600 transition-all"><i class="fas fa-user-tie text-purple-500 mr-1"></i>老板/厂长</button>
+<button onclick="quickLogin('planner')" class="py-2 border border-gray-200 rounded-lg hover:bg-gray-50 text-xs font-medium text-gray-600 transition-all"><i class="fas fa-calendar-alt text-brand-500 mr-1"></i>计划员</button>
+<button onclick="quickLogin('warehouse')" class="py-2 border border-gray-200 rounded-lg hover:bg-gray-50 text-xs font-medium text-gray-600 transition-all"><i class="fas fa-warehouse text-orange-500 mr-1"></i>仓管员</button>
+</div>
+</div>
+</div>
+</div>
+<div class="hidden lg:flex w-1/2 bg-dark-950 relative overflow-hidden items-center justify-center">
+<div class="absolute inset-0 dark-grid-bg opacity-40"></div>
+<div class="absolute top-20 right-20 w-72 h-72 bg-brand-500 rounded-full blur-[120px] opacity-20"></div>
+<div class="absolute bottom-20 left-20 w-96 h-96 bg-accent-500 rounded-full blur-[120px] opacity-10"></div>
+<div class="relative z-10 text-center px-12">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white/80 text-xs font-medium mb-6 border border-white/10">
+<span class="w-2 h-2 rounded-full bg-green-400 tag-pulse"></span> V2.0 全功能版
+</div>
+<h1 class="text-4xl font-bold text-white mb-4 leading-tight">让生产管理<br>更简单、更智能</h1>
+<p class="text-gray-400 text-lg mb-8 max-w-sm mx-auto">订单驱动 · 智能预警 · AI排产<br>专为中小制造企业打造的数字化引擎</p>
+<div class="grid grid-cols-3 gap-4 text-center">
+<div class="p-4 rounded-2xl bg-white/5 border border-white/10"><div class="text-2xl font-bold text-white mb-1">10-200</div><div class="text-xs text-gray-400">人规模适用</div></div>
+<div class="p-4 rounded-2xl bg-white/5 border border-white/10"><div class="text-2xl font-bold text-white mb-1">&lt;3s</div><div class="text-xs text-gray-400">页面响应</div></div>
+<div class="p-4 rounded-2xl bg-white/5 border border-white/10"><div class="text-2xl font-bold text-white mb-1">99.5%</div><div class="text-xs text-gray-400">可用率保障</div></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 主应用 -->
+<div id="mainApp" class="hidden h-screen flex">
+<aside id="sidebar" class="w-64 bg-white border-r border-gray-200 flex flex-col shrink-0">
+<div class="p-5 border-b border-gray-100">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-brand-600 flex items-center justify-center text-white text-sm font-bold shrink-0"><i class="fas fa-industry"></i></div>
+<div class="overflow-hidden">
+<h1 id="sidebarFactory" class="font-bold text-gray-900 text-sm truncate">鸿泰服装厂</h1>
+<p id="sidebarCode" class="text-xs text-gray-500">FZ-2026-001</p>
+</div>
+</div>
+</div>
+<nav id="sidebarNav" class="flex-1 overflow-y-auto py-4 px-3 space-y-1 scrollbar-hide"></nav>
+<div class="p-4 border-t border-gray-100">
+<div class="flex items-center gap-3 p-3 rounded-xl bg-gray-50">
+<img id="sidebarAvatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=boss" class="w-9 h-9 rounded-full bg-white border border-gray-200" alt="avatar">
+<div class="flex-1 min-w-0">
+<p id="sidebarName" class="text-sm font-medium text-gray-900 truncate">王厂长</p>
+<p id="sidebarRole" class="text-xs text-gray-500">超级管理员</p>
+</div>
+<button onclick="logout()" class="text-gray-400 hover:text-red-500 transition-colors"><i class="fas fa-sign-out-alt"></i></button>
+</div>
+</div>
+</aside>
+
+<main class="flex-1 flex flex-col min-w-0 bg-gray-50">
+<header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 shrink-0">
+<div class="flex items-center gap-4">
+<div class="relative">
+<i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+<input type="text" id="globalSearch" placeholder="搜索订单、物料、员工..." class="pl-9 pr-4 py-2 w-80 rounded-lg border border-gray-200 focus:border-brand-500 outline-none text-sm">
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button onclick="switchTab('approvals')" class="relative p-2 rounded-lg hover:bg-gray-100 text-gray-600 transition-colors">
+<i class="fas fa-clipboard-check"></i>
+<span id="approvalBadge" class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">3</span>
+</button>
+<button onclick="switchTab('alerts')" class="relative p-2 rounded-lg hover:bg-gray-100 text-gray-600 transition-colors">
+<i class="fas fa-bell"></i>
+<span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+</button>
+<div class="h-8 w-px bg-gray-200 mx-1"></div>
+<span id="currentDate" class="text-sm text-gray-500"></span>
+<span id="currentTime" class="text-sm text-gray-700 font-medium ml-2"></span>
+</div>
+</header>
+<div id="mainContent" class="flex-1 overflow-y-auto p-6 scrollbar-hide"></div>
+</main>
+</div>
+
+<!-- 模态框 -->
+<div id="modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+<div class="modal-overlay absolute inset-0" onclick="closeModal()"></div>
+<div id="modalContent" class="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-auto animate-fade-in"></div>
+</div>
+
+<!-- 打印预览 -->
+<div id="printModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+<div class="modal-overlay absolute inset-0" onclick="closePrintModal()"></div>
+<div class="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-auto">
+<div class="flex items-center justify-between p-4 border-b border-gray-100 sticky top-0 bg-white">
+<h3 class="font-bold text-gray-900"><i class="fas fa-print mr-2 text-gray-400"></i>打印预览</h3>
+<div class="flex gap-2">
+<button onclick="window.print()" class="px-4 py-2 bg-brand-600 text-white rounded-lg text-sm font-medium hover:bg-brand-700"><i class="fas fa-print mr-1"></i>打印</button>
+<button onclick="closePrintModal()" class="px-4 py-2 border border-gray-200 text-gray-600 rounded-lg text-sm font-medium hover:bg-gray-50">关闭</button>
+</div>
+</div>
+<div id="printContent" class="p-8"></div>
+</div>
+</div>
+
+<script>
+// ========== 数据层 ==========
+const USERS = {
+  admin: { id: 'admin', name: '王厂长', role: '超级管理员', avatar: 'boss', permissions: ['*'] },
+  owner: { id: 'owner', name: '李总', role: '老板/厂长', avatar: 'owner', permissions: ['dashboard','orders','production','inventory','ai','alerts','approvals','settings'] },
+  planner: { id: 'planner', name: '张计划', role: '计划员', avatar: 'planner', permissions: ['dashboard','orders','production','inventory','ai','alerts'] },
+  warehouse: { id: 'warehouse', name: '仓管小王', role: '仓管员', avatar: 'warehouse', permissions: ['dashboard','inventory','approvals'] },
+  cutting: { id: 'cutting', name: '裁剪主管', role: '裁剪负责人', avatar: 'cutting', permissions: ['dashboard','production'] },
+  sewing: { id: 'sewing', name: '缝制主管', role: '缝制负责人', avatar: 'sewing', permissions: ['dashboard','production'] },
+  finance: { id: 'finance', name: '财务小李', role: '财务', avatar: 'finance', permissions: ['dashboard','orders','inventory','settings'] }
+};
+
+let currentUser = null;
+let currentTab = 'dashboard';
+
+const mockData = {
+  orders: [
+    { id:'HT-2026-0428-A', client:'利华贸易', style:'夏季T恤款', spec:'圆领短袖', qty:500, colors:'3色', sizes:'4码', delivery:'2026-05-15', status:'producing', progress:65, po:'PO-2026-0428-A' },
+    { id:'HT-2026-0425-B', client:'盛达服饰', style:'秋季外套款', spec:'连帽风衣', qty:300, colors:'2色', sizes:'3码', delivery:'2026-05-20', status:'pending', progress:10, po:'PO-2026-0425-B' },
+    { id:'HT-2026-0420-C', client:'金辉制衣', style:'工装裤款', spec:'直筒长裤', qty:800, colors:'4色', sizes:'5码', delivery:'2026-05-10', status:'delayed', progress:80, po:'PO-2026-0420-C' },
+    { id:'HT-2026-0415-D', client:'美佳时装', style:'连衣裙款', spec:'碎花雪纺', qty:600, colors:'5色', sizes:'3码', delivery:'2026-05-08', status:'shipped', progress:100, po:'PO-2026-0415-D' },
+    { id:'HT-2026-0410-E', client:'恒信商贸', style:'衬衫款', spec:'商务修身', qty:1000, colors:'2色', sizes:'4码', delivery:'2026-05-25', status:'producing', progress:45, po:'PO-2026-0410-E' }
+  ],
+  materials: [
+    { id:'M001', name:'纯棉针织布-白色', type:'面料', unit:'米', stock:850, safeStock:1000, price:12, location:'A区-3排-5列', supplier:'鑫达纺织' },
+    { id:'M002', name:'纯棉针织布-黑色', type:'面料', unit:'米', stock:1200, safeStock:1000, price:12, location:'A区-3排-6列', supplier:'鑫达纺织' },
+    { id:'M003', name:'涤纶里布-黑色', type:'里料', unit:'米', stock:600, safeStock:800, price:8, location:'A区-2排-3列', supplier:'华东纺织' },
+    { id:'M004', name:'金属拉链-5号', type:'辅料', unit:'条', stock:3200, safeStock:2000, price:2.5, location:'B区-1排-2列', supplier:'YKK代理商' },
+    { id:'M005', name:'商标吊牌-通用款', type:'辅料', unit:'套', stock:5000, safeStock:3000, price:0.5, location:'C区-2排-8列', supplier:'印刷厂' },
+    { id:'M006', name:'纽扣-20mm', type:'辅料', unit:'粒', stock:8000, safeStock:5000, price:0.1, location:'C区-1排-1列', supplier:'辅料商行' }
+  ],
+  purchases: [
+    { id:'CG-2026-0428-001', materialName:'纯棉针织布-白色', qty:1500, unit:'米', price:12, supplier:'鑫达纺织', status:'purchasing', expectedDate:'2026-05-03', orderId:'HT-2026-0428-A' },
+    { id:'CG-2026-0425-002', materialName:'涤纶里布-黑色', qty:800, unit:'米', price:8, supplier:'华东纺织', status:'pending', expectedDate:'2026-05-05', orderId:'HT-2026-0425-B' },
+    { id:'CG-2026-0420-003', materialName:'金属拉链-5号', qty:2000, unit:'条', price:2.5, supplier:'YKK代理商', status:'received', actualDate:'2026-05-01', orderId:'HT-2026-0420-C' }
+  ],
+  approvals: [
+    { id:'APR-2026-0502-001', type:'purchase', title:'采购申请 - 涤纶里布', applicant:'张计划', amount:6400, status:'pending', date:'2026-05-02', orderId:'HT-2026-0425-B' },
+    { id:'APR-2026-0501-002', type:'material', title:'领料申请 - 纯棉针织布', applicant:'裁剪组-A', amount:0, status:'pending', date:'2026-05-01', orderId:'HT-2026-0428-A' },
+    { id:'APR-2026-0501-003', type:'overtime', title:'加班申请 - 缝制组', applicant:'缝制主管', amount:0, status:'pending', date:'2026-05-01' }
+  ],
+  alerts: [
+    { id:'AL-001', type:'shipment', level:'urgent', title:'出货预警', message:'订单HT-2026-0420-C距出货日仅剩3天，当前进度80%', time:'10分钟前', status:'unread' },
+    { id:'AL-002', type:'inventory', level:'warning', title:'库存预警', message:'面料「纯棉针织布-白色」库存低于安全库存15%', time:'1小时前', status:'unread' },
+    { id:'AL-003', type:'cutting', level:'info', title:'开裁预警', message:'订单HT-2026-0501-F计划开裁，物料尚未全部到位', time:'2小时前', status:'unread' },
+    { id:'AL-004', type:'purchase', level:'info', title:'采购到货预警', message:'供应商「鑫达纺织」预计到货5月3日', time:'3小时前', status:'unread' }
+  ],
+  production: {
+    cutting: [
+      { orderId:'HT-2026-0428-A', style:'夏季T恤款', target:500, completed:320, status:'in_progress' },
+      { orderId:'HT-2026-0425-B', style:'秋季外套款', target:300, completed:80, status:'in_progress' },
+      { orderId:'HT-2026-0415-D', style:'连衣裙款', target:600, completed:600, status:'completed' }
+    ],
+    sewing: [
+      { orderId:'HT-2026-0428-A', style:'夏季T恤款', target:500, completed:280, status:'in_progress' },
+      { orderId:'HT-2026-0420-C', style:'工装裤款', target:800, completed:600, status:'in_progress' }
+    ],
+    finishing: [
+      { orderId:'HT-2026-0420-C', style:'工装裤款', target:800, completed:550, status:'in_progress' },
+      { orderId:'HT-2026-0415-D', style:'连衣裙款', target:600, completed:600, status:'completed' }
+    ],
+    packing: [
+      { orderId:'HT-2026-0415-D', style:'连衣裙款', target:600, completed:600, status:'completed' }
+    ]
+  }
+};
+
+// ========== 工具函数 ==========
+function showToast(type, title, msg) {
+  const toast = document.getElementById('toast');
+  const icon = document.getElementById('toast-icon');
+  const configs = { success:{bg:'bg-green-100',color:'text-green-600',icon:'fa-check-circle'}, error:{bg:'bg-red-100',color:'text-red-600',icon:'fa-times-circle'}, warning:{bg:'bg-orange-100',color:'text-orange-600',icon:'fa-exclamation-circle'}, info:{bg:'bg-brand-100',color:'text-brand-600',icon:'fa-info-circle'} };
+  const c = configs[type] || configs.info;
+  icon.className = `w-10 h-10 rounded-xl flex items-center justify-center ${c.bg} ${c.color}`;
+  icon.innerHTML = `<i class="fas ${c.icon}"></i>`;
+  document.getElementById('toast-title').textContent = title;
+  document.getElementById('toast-msg').textContent = msg;
+  toast.classList.remove('translate-x-full');
+  setTimeout(() => toast.classList.add('translate-x-full'), 3000);
+}
+
+function hideToast() { document.getElementById('toast').classList.add('translate-x-full'); }
+
+function formatDate() {
+  const now = new Date(), days=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+  return `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日 ${days[now.getDay()]}`;
+}
+
+function formatTime() {
+  const now = new Date();
+  return `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
+}
+
+function updateDateTime() {
+  document.getElementById('currentDate').textContent = formatDate();
+  document.getElementById('currentTime').textContent = formatTime();
+}
+
+function getStatusBadge(status) {
+  const m = { pending:'<span class="px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700">未开始</span>', producing:'<span class="px-2.5 py-1 rounded-full text-xs font-medium bg-brand-100 text-brand-700">进行中</span>', delayed:'<span class="px-2.5 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700">已延期</span>', shipped:'<span class="px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">已出货</span>', completed:'<span class="px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">已完成</span>', in_progress:'<span class="px-2.5 py-1 rounded-full text-xs font-medium bg-brand-100 text-brand-700">进行中</span>', purchasing:'<span class="px-2.5 py-1 rounded-full text-xs font-medium bg-brand-100 text-brand-700">采购中</span>', received:'<span class="px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">已入库</span>', approved:'<span class="px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">已批准</span>', pending_approval:'<span class="px-2.5 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-700">待审批</span>' };
+  return m[status] || m.pending;
+}
+
+// ========== 登录 ==========
+function handleLogin(e) { e.preventDefault(); currentUser = USERS.admin; initApp(); }
+function quickLogin(role) { currentUser = USERS[role]; initApp(); }
+function logout() { currentUser = null; document.getElementById('mainApp').classList.add('hidden'); document.getElementById('loginPage').classList.remove('hidden'); }
+
+// ========== 初始化 ==========
+function initApp() {
+  document.getElementById('loginPage').classList.add('hidden');
+  document.getElementById('mainApp').classList.remove('hidden');
+  updateDateTime();
+  setInterval(updateDateTime, 1000);
+  document.getElementById('sidebarName').textContent = currentUser.name;
+  document.getElementById('sidebarRole').textContent = currentUser.role;
+  document.getElementById('sidebarAvatar').src = `https://api.dicebear.com/7.x/avataaars/svg?seed=${currentUser.avatar}`;
+  updateNav();
+  updateBadges();
+  switchTab('dashboard');
+}
+
+function updateNav() {
+  const navConfig = [
+    { id:'dashboard', icon:'fa-th-large', color:'text-brand-500', label:'数据看板' },
+    { id:'orders', icon:'fa-file-invoice', color:'text-gray-400', label:'订单中心' },
+    { id:'production', icon:'fa-cogs', color:'text-gray-400', label:'生产管理' },
+    { id:'inventory', icon:'fa-warehouse', color:'text-gray-400', label:'进销存' },
+    { id:'approvals', icon:'fa-clipboard-check', color:'text-orange-500', label:'审批中心' },
+    { id:'alerts', icon:'fa-bell', color:'text-orange-500', label:'预警中心' },
+    { id:'ai', icon:'fa-brain', color:'text-purple-500', label:'AI智能决策', tag:'NEW' },
+    { id:'settings', icon:'fa-cog', color:'text-gray-400', label:'基础数据中心' },
+    { id:'users', icon:'fa-users', color:'text-gray-400', label:'组织权限' }
+  ];
+  
+  const nav = document.getElementById('sidebarNav');
+  nav.innerHTML = '<div class="px-3 mb-2 text-xs font-semibold text-gray-400 uppercase">核心驾驶舱</div>';
+  
+  ['dashboard','orders','production','inventory'].forEach(id => {
+    const item = navConfig.find(n => n.id === id);
+    if (!hasPermission(id)) return;
+    nav.innerHTML += `<a href="#" onclick="switchTab('${id}')" id="nav-${id}" class="sidebar-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700">
+      <i class="fas ${item.icon} w-5 text-center ${item.color}"></i><span>${item.label}</span></a>`;
+  });
+  
+  nav.innerHTML += '<div class="px-3 mb-2 mt-6 text-xs font-semibold text-gray-400 uppercase">智能决策</div>';
+  
+  ['ai','alerts'].forEach(id => {
+    const item = navConfig.find(n => n.id === id);
+    if (!hasPermission(id)) return;
+    const tag = item.tag ? `<span class="ml-auto text-xs bg-purple-100 text-purple-600 px-2 py-0.5 rounded-full">${item.tag}</span>` : '';
+    nav.innerHTML += `<a href="#" onclick="switchTab('${id}')" id="nav-${id}" class="sidebar-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700">
+      <i class="fas ${item.icon} w-5 text-center ${item.color}"></i><span>${item.label}</span>${tag}</a>`;
+  });
+  
+  nav.innerHTML += '<div class="px-3 mb-2 mt-6 text-xs font-semibold text-gray-400 uppercase">系统管理</div>';
+  
+  ['settings','users'].forEach(id => {
+    const item = navConfig.find(n => n.id === id);
+    if (!hasPermission(id)) return;
+    nav.innerHTML += `<a href="#" onclick="switchTab('${id}')" id="nav-${id}" class="sidebar-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700">
+      <i class="fas ${item.icon} w-5 text-center ${item.color}"></i><span>${item.label}</span></a>`;
+  });
+}
+
+function hasPermission(tabId) {
+  if (!currentUser) return false;
+  return currentUser.permissions.includes('*') || currentUser.permissions.includes(tabId);
+}
+
+function updateBadges() {
+  const count = mockData.approvals.filter(a => a.status === 'pending').length;
+  document.getElementById('approvalBadge').textContent = count;
+  document.getElementById('approvalBadge').style.display = count > 0 ? 'flex' : 'none';
+}
+
+// ========== 标签页 ==========
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.sidebar-item').forEach(el => el.classList.remove('active'));
+  const nav = document.getElementById('nav-' + tab);
+  if (nav) nav.classList.add('active');
+  const content = document.getElementById('mainContent');
+  const renders = { dashboard:renderDashboard, orders:renderOrders, production:renderProduction, inventory:renderInventory, approvals:renderApprovals, alerts:renderAlerts, ai:renderAI, settings:renderSettings, users:renderUsers };
+  content.innerHTML = renders[tab] ? renders[tab]() : renders.dashboard();
+  if (tab === 'dashboard') initCharts();
+}
+
+function openModal(html) { document.getElementById('modalContent').innerHTML = html; document.getElementById('modal').classList.remove('hidden'); }
+function closeModal() { document.getElementById('modal').classList.add('hidden'); }
+function closePrintModal() { document.getElementById('printModal').classList.add('hidden'); }
+
+// ========== Dashboard ==========
+function renderDashboard() {
+  const total = mockData.orders.length, producing = mockData.orders.filter(o=>o.status==='producing').length;
+  const delayed = mockData.orders.filter(o=>o.status==='delayed').length, shipped = mockData.orders.filter(o=>o.status==='shipped').length;
+  return `
+<div class="animate-fade-in">
+<div class="flex items-center justify-between mb-6">
+<div><h2 class="text-2xl font-bold text-gray-900">数据驾驶舱</h2><p class="text-sm text-gray-500 mt-1">实时监控工厂运营状态</p></div>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2"><i class="fas fa-calendar-alt text-gray-400"></i> 本月</button>
+<button onclick="refreshData()" class="px-4 py-2 bg-brand-600 text-white rounded-lg text-sm font-medium hover:bg-brand-700 flex items-center gap-2 shadow-lg shadow-brand-200"><i class="fas fa-sync-alt"></i> 刷新数据</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
+<div class="bg-white rounded-2xl p-5 border border-gray-100 card-hover shadow-sm">
+<div class="flex items-start justify-between mb-3"><div class="p-2.5 rounded-xl bg-brand-50 text-brand-600"><i class="fas fa-file-invoice text-lg"></i></div><span class="text-xs font-medium text-green-600 bg-green-50 px-2 py-1 rounded-full">+12.5%</span></div>
+<p class="text-3xl font-bold text-gray-900">${total}</p><p class="text-sm text-gray-500 mt-1">本月订单总数</p>
+<div class="mt-3 h-1.5 bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-brand-500 rounded-full" style="width:78%"></div></div>
+</div>
+<div class="bg-white rounded-2xl p-5 border border-gray-100 card-hover shadow-sm">
+<div class="flex items-start justify-between mb-3"><div class="p-2.5 rounded-xl bg-orange-50 text-orange-600"><i class="fas fa-exclamation-triangle text-lg"></i></div><span class="text-xs font-medium text-red-600 bg-red-50 px-2 py-1 rounded-full">需关注</span></div>
+<p class="text-3xl font-bold text-gray-900">${delayed}</p><p class="text-sm text-gray-500 mt-1">即将延期订单</p>
+<div class="mt-3 h-1.5 bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-orange-500 rounded-full" style="width:23%"></div></div>
+</div>
+<div class="bg-white rounded-2xl p-5 border border-gray-100 card-hover shadow-sm">
+<div class="flex items-start justify-between mb-3"><div class="p-2.5 rounded-xl bg-green-50
