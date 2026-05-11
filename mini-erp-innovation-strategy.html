@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini ERP 差异化创新战略方案</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a' },
+        accent: { 50:'#fefce8',400:'#facc15',500:'#eab308',600:'#ca8a04' },
+        emerald: { 50:'#ecfdf5',500:'#10b981',600:'#059669' },
+        rose: { 50:'#fff1f2',500:'#f43f5e',600:'#e11d48' },
+        violet: { 50:'#f5f3ff',500:'#8b5cf6',600:'#7c3aed' },
+        dark: { 800:'#1e293b',900:'#0f172a',950:'#020617' }
+      },
+      fontFamily: { sans: ['Noto Sans SC','system-ui','sans-serif'] },
+    }
+  }
+}
+</script>
+<style>
+body { font-family: 'Noto Sans SC', system-ui, sans-serif; }
+.glass { background: rgba(255,255,255,0.85); backdrop-filter: blur(16px); }
+.card-hover { transition: all 0.35s cubic-bezier(0.4,0,0.2,1); }
+.card-hover:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0,0,0,0.08); }
+.gradient-text { background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f43f5e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.section-divider { height: 3px; background: linear-gradient(90deg, #3b82f6, #8b5cf6, #f43f5e, #facc15); border-radius: 2px; }
+.timeline-line { position: absolute; left: 24px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #f43f5e); }
+.timeline-dot { position: absolute; left: 18px; top: 6px; width: 14px; height: 14px; border-radius: 50%; border: 3px solid; }
+.pulse-ring { animation: pulseRing 2s ease-out infinite; }
+@keyframes pulseRing { 0% { transform: scale(0.8); opacity: 1; } 100% { transform: scale(2.2); opacity: 0; } }
+.float { animation: float 6s ease-in-out infinite; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+.page-break { page-break-before: always; }
+@media print {
+  .no-print { display: none; }
+  body { font-size: 11pt; }
+}
+.scroll-smooth { scroll-behavior: smooth; }
+.nav-active { color: #3b82f6 !important; border-right: 3px solid #3b82f6; background: rgba(59,130,246,0.05); }
+.swot-grid > div { min-height: 200px; }
+.competitor-bar { transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-800 scroll-smooth">
+
+<!-- ============ 顶部导航 ============ -->
+<nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-gray-200/60">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-500 to-violet-500 flex items-center justify-center text-white font-bold"><i class="fas fa-lightbulb"></i></div>
+      <span class="font-bold text-gray-900">Mini ERP · 差异化创新战略</span>
+    </div>
+    <div class="hidden md:flex items-center gap-1 text-sm">
+      <a href="#executive" class="px-3 py-2 rounded-lg text-gray-600 hover:text-brand-600 hover:bg-brand-50 transition-all">摘要</a>
+      <a href="#diagnosis" class="px-3 py-2 rounded-lg text-gray-600 hover:text-brand-600 hover:bg-brand-50 transition-all">诊断</a>
+      <a href="#strategy" class="px-3 py-2 rounded-lg text-gray-600 hover:text-brand-600 hover:bg-brand-50 transition-all">战略</a>
+      <a href="#innovation" class="px-3 py-2 rounded-lg text-gray-600 hover:text-brand-600 hover:bg-brand-50 transition-all">创新</a>
+      <a href="#roadmap" class="px-3 py-2 rounded-lg text-gray-600 hover:text-brand-600 hover:bg-brand-50 transition-all">路线图</a>
+      <a href="#monetization" class="px-3 py-2 rounded-lg text-gray-600 hover:text-brand-600 hover:bg-brand-50 transition-all">商业模式</a>
+    </div>
+    <button onclick="window.print()" class="px-4 py-2 bg-brand-600 text-white rounded-lg text-sm font-medium hover:bg-brand-700 transition-all shadow-lg shadow-brand-200 no-print"><i class="fas fa-download mr-2"></i>导出PDF</button>
+  </div>
+</nav>
+
+<!-- ============ Hero 区域 ============ -->
+<header id="top" class="pt-16 bg-gradient-to-br from-dark-950 via-dark-900 to-brand-900 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 1px 1px, #fff 1px, transparent 0); background-size: 40px 40px;"></div>
+  <div class="absolute top-20 right-20 w-96 h-96 bg-brand-500 rounded-full blur-[160px] opacity-15"></div>
+  <div class="absolute bottom-10 left-10 w-72 h-72 bg-violet-500 rounded-full blur-[120px] opacity-10"></div>
+  <div class="absolute top-40 left-1/3 w-64 h-64 bg-rose-500 rounded-full blur-[100px] opacity-10"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-36 text-center">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white/80 text-xs font-medium mb-8 border border-white/10">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> 战略规划文档 · 2026年5月
+    </div>
+    <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+      从<span class="gradient-text" style="-webkit-text-fill-color: transparent; background: linear-gradient(135deg, #60a5fa, #a78bfa, #fb7185); -webkit-background-clip: text; background-clip: text;">同质化红海</span>中<br>突围的创新路径
+    </h1>
+    <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+      轻量级制造业数字化管理系统（Mini ERP）<br>
+      突破性创新与差异化竞争战略全方案
+    </p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+      <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+        <div class="text-2xl font-bold text-white">6</div>
+        <div class="text-xs text-gray-400 mt-1">核心创新方向</div>
+      </div>
+      <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+        <div class="text-2xl font-bold text-white">18</div>
+        <div class="text-xs text-gray-400 mt-1">差异化功能点</div>
+      </div>
+      <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+        <div class="text-2xl font-bold text-white">3</div>
+        <div class="text-xs text-gray-400 mt-1">阶段落地计划</div>
+      </div>
+      <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+        <div class="text-2xl font-bold text-white">12个月</div>
+        <div class="text-xs text-gray-400 mt-1">完整实施周期</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 目录 ============ -->
+<div class="bg-white border-b border-gray-100 sticky top-16 z-40 no-print">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center gap-6 overflow-x-auto text-sm scrollbar-hide">
+    <a href="#executive" class="text-gray-500 hover:text-brand-600 whitespace-nowrap transition-colors">一、执行摘要</a>
+    <a href="#diagnosis" class="text-gray-500 hover:text-brand-600 whitespace-nowrap transition-colors">二、市场诊断</a>
+    <a href="#strategy" class="text-gray-500 hover:text-brand-600 whitespace-nowrap transition-colors">三、差异化战略</a>
+    <a href="#innovation" class="text-gray-500 hover:text-brand-600 whitespace-nowrap transition-colors">四、创新方案</a>
+    <a href="#roadmap" class="text-gray-500 hover:text-brand-600 whitespace-nowrap transition-colors">五、实施路线图</a>
+    <a href="#monetization" class="text-gray-500 hover:text-brand-600 whitespace-nowrap transition-colors">六、商业模式</a>
+    <a href="#risk" class="text-gray-500 hover:text-brand-600 whitespace-nowrap transition-colors">七、风险控制</a>
+    <a href="#conclusion" class="text-gray-500 hover:text-brand-600 whitespace-nowrap transition-colors">八、总结</a>
+  </div>
+</div>
+
+<main class="max-w-6xl mx-auto px-6 py-16 space-y-24">
+
+<!-- ==================== 第一章：执行摘要 ==================== -->
+<section id="executive">
+  <div class="flex items-center gap-4 mb-10">
+    <div class="w-12 h-12 rounded-2xl bg-brand-600 flex items-center justify-center text-white text-xl font-bold shrink-0">01</div>
+    <div>
+      <h2 class="text-3xl font-bold text-gray-900">执行摘要</h2>
+      <p class="text-gray-500 mt-1">Executive Summary</p>
+    </div>
+  </div>
+  <div class="section-divider mb-10"></div>
+
+  <div class="bg-gradient-to-br from-brand-50 to-violet-50 rounded-3xl p-8 md:p-10 border border-brand-100 mb-8">
+    <div class="flex items-start gap-4 mb-6">
+      <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center text-white shrink-0"><i class="fas fa-flag"></i></div>
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">核心结论</h3>
+        <p class="text-gray-700 leading-relaxed">
+          当前 Mini ERP 系统定位于中小制造企业的轻量级数字化管理，功能覆盖订单、生产、库存、审批等标准模块。<strong>但这些功能在用友、金蝶、管家通、易飞等成熟 ERP 产品中均已实现，且市场上存在大量 SaaS 化的竞品（如黑湖智造、智造云等）。</strong>同质化竞争的核心问题不在于"功能不够多"，而在于"没有回答用户为什么要选你"。
+        </p>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="bg-white rounded-2xl p-5 border border-brand-100">
+        <div class="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center text-red-600 mb-3"><i class="fas fa-crosshairs"></i></div>
+        <h4 class="font-bold text-gray-900 mb-1">核心问题</h4>
+        <p class="text-sm text-gray-600">功能堆砌型产品，缺乏"不可替代性"，用户迁移成本低</p>
+      </div>
+      <div class="bg-white rounded-2xl p-5 border border-brand-100">
+        <div class="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600 mb-3"><i class="fas fa-bullseye"></i></div>
+        <h4 class="font-bold text-gray-900 mb-1">破局方向</h4>
+        <p class="text-sm text-gray-600">从"工具"进化为"行业智能体"——深度融合 AI + 行业 Know-how + 生态连接</p>
+      </div>
+      <div class="bg-white rounded-2xl p-5 border border-brand-100">
+        <div class="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center text-violet-600 mb-3"><i class="fas fa-rocket"></i></div>
+        <h4 class="font-bold text-gray-900 mb-1">终极目标</h4>
+        <p class="text-sm text-gray-600">成为中小服装工厂的"数字大脑"——不止管理，更能决策、预测、连接</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+      <h4 class="font-bold text-gray-900 mb-4 flex items-center gap-2"><i class="fas fa-chart-line text-brand-500"></i> 预期竞争效果</h4>
+      <div class="space-y-4">
+        <div>
+          <div class="flex justify-between text-sm mb-1"><span class="text-gray-600">用户留存率提升</span><span class="font-bold text-brand-600">从 60% → 85%</span></div>
+          <div class="h-2 bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-brand-400 to-brand-600 rounded-full competitor-bar" style="width:85%"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1"><span class="text-gray-600">客户获取成本降低</span><span class="font-bold text-emerald-600">降低 40%</span></div>
+          <div class="h-2 bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full competitor-bar" style="width:60%"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1"><span class="text-gray-600">客单价提升空间</span><span class="font-bold text-violet-600">提升 2-3 倍</span></div>
+          <div class="h-2 bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-violet-400 to-violet-600 rounded-full competitor-bar" style="width:75%"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1"><span class="text-gray-600">市场份额目标（2年）</span><span class="font-bold text-rose-600">细分赛道 Top 3</span></div>
+          <div class="h-2 bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-rose-400 to-rose-600 rounded-full competitor-bar" style="width:50%"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+      <h4 class="font-bold text-gray-900 mb-4 flex items-center gap-2"><i class="fas fa-layer-group text-violet-500"></i> 差异化支柱</h4>
+      <div class="space-y-3">
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-brand-50 border border-brand-100">
+          <div class="w-8 h-8 rounded-lg bg-brand-500 text-white flex items-center justify-center text-sm font-bold">1</div>
+          <div><p class="text-sm font-bold text-gray-900">AI 原生架构</p><p class="text-xs text-gray-500">不是"加个AI模块"，而是 AI 渗透每个功能</p></div>
+        </div>
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-emerald-50 border border-emerald-100">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500 text-white flex items-center justify-center text-sm font-bold">2</div>
+          <div><p class="text-sm font-bold text-gray-900">行业深度垂直</p><p class="text-xs text-gray-500">服装行业 Know-how 内置，非通用型 ERP</p></div>
+        </div>
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-violet-50 border border-violet-100">
+          <div class="w-8 h-8 rounded-lg bg-violet-500 text-white flex items-center justify-center text-sm font-bold">3</div>
+          <div><p class="text-sm font-bold text-gray-900">生态连接器</p><p class="text-xs text-gray-500">打通面料商、品牌商、物流的产业互联网</p></div>
+        </div>
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-rose-50 border border-rose-100">
+          <div class="w-8 h-8 rounded-lg bg-rose-500 text-white flex items-center justify-center text-sm font-bold">4</div>
+          <div><p class="text-sm font-bold text-gray-900">极致用户体验</p><p class="text-xs text-gray-500">车间级交互设计，工人 0 培训上手</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 第二章：市场诊断 ==================== -->
+<section id="diagnosis" class="page-break">
+  <div class="flex items-center gap-4 mb-10">
+    <div class="w-12 h-12 rounded-2xl bg-rose-600 flex items-center justify-center text-white text-xl font-bold shrink-0">02</div>
+    <div>
+      <h2 class="text-3xl font-bold text-gray-900">市场诊断与竞争分析</h2>
+      <p class="text-gray-500 mt-1">Market Diagnosis & Competitive Analysis</p>
+    </div>
+  </div>
+  <div class="section-divider mb-10"></div>
+
+  <!-- 2.1 行业现状 -->
+  <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2"><i class="fas fa-chart-pie text-rose-500"></i> 2.1 行业现状：为什么"同质化"是致命问题</h3>
+  <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm mb-8">
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h4 class="font-bold text-gray-900 mb-4">中小制造企业 ERP 市场特征</h4>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center text-red-600 shrink-0 mt-0.5"><i class="fas fa-exclamation text-xs"></i></div>
+            <div>
+              <p class="text-sm font-semibold text-gray-900">功能高度趋同</p>
+              <p class="text-xs text-gray-500 mt-0.5">90% 的产品都在做"订单→采购→库存→生产→财务"的标准流程，界面和交互几乎一样</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center text-orange-600 shrink-0 mt-0.5"><i class="fas fa-exclamation text-xs"></i></div>
+            <div>
+              <p class="text-sm font-semibold text-gray-900">价格战白热化</p>
+              <p class="text-xs text-gray-500 mt-0.5">SaaS 模式下年费从数万降到数千，甚至出现免费版本，利润空间被极度压缩</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-yellow-100 flex items-center justify-center text-yellow-600 shrink-0 mt-0.5"><i class="fas fa-exclamation text-xs"></i></div>
+            <div>
+              <p class="text-sm font-semibold text-gray-900">用户忠诚度极低</p>
+              <p class="text-xs text-gray-500 mt-0.5">数据可导出、功能差异小，用户切换成本低，续费率普遍低于 70%</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600 shrink-0 mt-0.5"><i class="fas fa-exclamation text-xs"></i></div>
+            <div>
+              <p class="text-sm font-semibold text-gray-900">大厂下沉挤压</p>
+              <p class="text-xs text-gray-500 mt-0.5">用友畅捷通、金蝶精斗云等大厂产品持续下沉，品牌信任度碾压中小厂商</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-bold text-gray-900 mb-4">Mini ERP 当前定位的 SWOT 分析</h4>
+        <div class="swot-grid grid grid-cols-2 gap-3">
+          <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200">
+            <div class="flex items-center gap-2 mb-2"><i class="fas fa-check-circle text-emerald-600"></i><span class="text-sm font-bold text-emerald-800">优势 S</span></div>
+            <ul class="text-xs text-gray-600 space-y-1.5">
+              <li>• 轻量级，部署快、上手快</li>
+              <li>• 界面现代，UI 优于传统 ERP</li>
+              <li>• 服装行业垂直定位</li>
+              <li>• PO 全程追溯功能</li>
+            </ul>
+          </div>
+          <div class="p-4 rounded-xl bg-red-50 border border-red-200">
+            <div class="flex items-center gap-2 mb-2"><i class="fas fa-times-circle text-red-600"></i><span class="text-sm font-bold text-red-800">劣势 W</span></div>
+            <ul class="text-xs text-gray-600 space-y-1.5">
+              <li>• AI 功能停留在展示层</li>
+              <li>• 缺乏行业深度算法</li>
+              <li>• 生态连接能力弱</li>
+              <li>• 数据价值未被挖掘</li>
+            </ul>
+          </div>
+          <div class="p-4 rounded-xl bg-brand-50 border border-brand-200">
+            <div class="flex items-center gap-2 mb-2"><i class="fas fa-arrow-up text-brand-600"></i><span class="text-sm font-bold text-brand-800">机会 O</span></div>
+            <ul class="text-xs text-gray-600 space-y-1.5">
+              <li>• AI 大模型降低智能化门槛</li>
+              <li>• 中小工厂数字化渗透率仍低</li>
+              <li>• 产业互联网趋势不可逆</li>
+              <li>• 服装行业柔性供应链需求爆发</li>
+            </ul>
+          </div>
+          <div class="p-4 rounded-xl bg-orange-50 border border-orange-200">
+            <div class="flex items-center gap-2 mb-2"><i class="fas fa-exclamation-triangle text-orange-600"></i><span class="text-sm font-bold text-orange-800">威胁 T</span></div>
+            <ul class="text-xs text-gray-600 space-y-1.5">
+              <li>• 大厂产品持续下沉</li>
+              <li>• 新进入者携带 AI 原生能力</li>
+              <li>• 行业标准变化快</li>
+              <li>• 客户付费意愿低</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2.2 竞品对比 -->
+  <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2"><i class="fas fa-balance-scale text-rose-500"></i> 2.2 竞品能力对比矩阵</h3>
+  <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-8">
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-gray-50 border-b border-gray-100">
+            <th class="px-5 py-4 text-left font-semibold text-gray-700 w-44">能力维度</th>
+            <th class="px-5 py-4 text-center font-semibold text-gray-400">传统 ERP<br><span class="text-xs font-normal">(用友/金蝶)</span></th>
+            <th class="px-5 py-4 text-center font-semibold text-gray-400">SaaS 竞品<br><span class="text-xs font-normal">(黑湖/智造云)</span></th>
+            <th class="px-5 py-4 text-center font-semibold text-brand-700 bg-brand-50">Mini ERP<br><span class="text-xs font-normal text-brand-500">(现状)</span></th>
+            <th class="px-5 py-4 text-center font-semibold text-emerald-700 bg-emerald-50">Mini ERP<br><span class="text-xs font-normal text-emerald-500">(目标)</span></th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          <tr>
+            <td class="px-5 py-3 font-medium text-gray-700">基础 ERP 功能</td>
+            <td class="px-5 py-3 text-center"><span class="text-emerald-600 font-bold">★★★★★</span></td>
+            <td class="px-5 py-3 text-center"><span class="text-emerald-600 font-bold">★★★★</span></td>
+            <td class="px-5 py-3 text-center bg-brand-50/50"><span class="text-brand-600 font-bold">★★★</span></td>
+            <td class="px-5 py-3 text-center bg-emerald-50/50"><span class="text-emerald-600 font-bold">★★★★</span></td>
+          </tr>
+          <tr>
+            <td class="px-5 py-3 font-medium text-gray-700">AI 智能决策</td>
+            <td class="px-5 py-3 text-center"><span class="text-red-400 font-bold">★</span></td>
+            <td class="px-5 py-3 text-center"><span class="text-orange-400 font-bold">★★</span></td>
+            <td class="px-5 py-3 text-center bg-brand-50/50"><span class="text-orange-400 font-bold">★★</span></td>
+            <td class="px-5 py-3 text-center bg-emerald-50/50"><span class="text-emerald-600 font-bold">★★★★★</span></td>
+          </tr>
+          <tr>
+            <td class="px-5 py-3 font-medium text-gray-700">行业深度垂直</td>
+            <td class="px-5 py-3 text-center"><span class="text-orange-400 font-bold">★★</span></td>
+            <td class="px-5 py-3 text-center"><span class="text-brand-600 font-bold">★★★</span></td>
+            <td class="px-5 py-3 text-center bg-brand-50/50"><span class="text-brand-600 font-bold">★★★</span></td>
+            <td class="px-5 py-3 text-center bg-emerald-50/50"><span class="text-emerald-600 font-bold">★★★★★</span></td>
+          </tr>
+          <tr>
+            <td class="px-5 py-3 font-medium text-gray-700">生态连接能力</td>
+            <td class="px-5 py-3 text-center"><span class="text-orange-400 font-bold">★★</span></td>
+            <td class="px-5 py-3 text-center"><span class="text-brand-600 font-bold">★★★</span></td>
+            <td class="px-5 py-3 text-center bg-brand-50/50"><span class="text-red-400 font-bold">★</span></td>
+            <td class="px-5 py-3 text-center bg-emerald-50/50"><span class="text-emerald-600 font-bold">★★★★★</span></td>
+          </tr>
+          <tr>
+            <td class="px-5 py-3 font-medium text-gray-700">用户体验/易用性</td>
+            <td class="px-5 py-3 text-center"><span class="text-red-400 font-bold">★★</span></td>
+            <td class="px-5 py-3 text-center"><span class="text-brand-600 font-bold">★★★★</span></td>
+            <td class="px-5 py-3 text-center bg-brand-50/50"><span class="text-emerald-600 font-bold">★★★★</span></td>
+            <td class="px-5 py-3 text-center bg-emerald-50/50"><span class="text-emerald-600 font-bold">★★★★★</span></td>
+          </tr>
+          <tr>
+            <td class="px-5 py-3 font-medium text-gray-700">数据资产化能力</td>
+            <td class="px-5 py-3 text-center"><span class="text-red-400 font-bold">★</span></td>
+            <td class="px-5 py-3 text-center"><span class="text-orange-400 font-bold">★★</span></td>
+            <td class="px-5 py-3 text-center bg-brand-50/50"><span class="text-red-400 font-bold">★</span></td>
+            <td class="px-5 py-3 text-center bg-emerald-50/50"><span class="text-emerald-600 font-bold">★★★★★</span></td>
+          </tr>
+          <tr>
+            <td class="px-5 py-3 font-medium text-gray-700">价格竞争力</td>
+            <td class="px-5 py-3 text-center"><span class="text-red-400 font-bold">★★</span></td>
+            <td class="px-5 py-3 text-center"><span class="text-brand-600 font-bold">★★★</span></td>
+            <td class="px-5 py-3 text-center bg-brand-50/50"><span class="text-emerald-600 font-bold">★★★★★</span></td>
+            <td class="px-5 py-3 text-center bg-emerald-50/50"><span class="text-emerald-600 font-bold">★★★★</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 2.3 核心痛点 -->
+  <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2"><i class="fas fa-heartbeat text-rose-500"></i> 2.3 目标用户的真实痛点（不只是功能清单）</h3>
+  <div class="grid md:grid-cols-3 gap-5">
+    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm card-hover">
+      <div class="w-12 h-12 rounded-2xl bg-red-100 flex items-center justify-center text-red-600 mb-4"><i class="fas fa-user-tie text-xl"></i></div>
+      <h4 class="font-bold text-gray-900 mb-2">厂长/老板</h4>
+      <p class="text-sm text-gray-600 mb-3">"系统告诉我发生了什么，但不告诉我该怎么办。"</p>
+      <ul class="text-xs text-gray-500 space-y-1.5">
+        <li>❌ 看得到数据，看不到决策建议</li>
+        <li>❌ 预警只是报警，没有解决方案</li>
+        <li>❌ 无法预判风险，总是事后救火</li>
+        <li>✅ 期望：<strong>AI 军师</strong>——告诉我下一步该做什么</li>
+      </ul>
+    </div>
+    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm card-hover">
+      <div class="w-12 h-12 rounded-2xl bg-orange-100 flex items-center justify-center text-orange-600 mb-4"><i class="fas fa-hard-hat text-xl"></i></div>
+      <h4 class="font-bold text-gray-900 mb-2">车间主管</h4>
+      <p class="text-sm text-gray-600 mb-3">"系统太复杂了，我宁可用微信群和 Excel。"</p>
+      <ul class="text-xs text-gray-500 space-y-1.5">
+        <li>❌ 录入繁琐，影响生产节奏</li>
+        <li>❌ 手机端体验差，车间没电脑</li>
+        <li>❌ 信息不同步，沟通成本高</li>
+        <li>✅ 期望：<strong>像用微信一样简单</strong>——语音录入、扫码即用</li>
+      </ul>
+    </div>
+    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm card-hover">
+      <div class="w-12 h-12 rounded-2xl bg-brand-100 flex items-center justify-center text-brand-600 mb-4"><i class="fas fa-chart-bar text-xl"></i></div>
+      <h4 class="font-bold text-gray-900 mb-2">计划员/跟单员</h4>
+      <p class="text-sm text-gray-600 mb-3">"排产靠经验，出了问题全靠人肉协调。"</p>
+      <ul class="text-xs text-gray-500 space-y-1.5">
+        <li>❌ 排产不智能，手动调来调去</li>
+        <li>❌ 物料和产能不联动</li>
+        <li>❌ 进度更新滞后，信息不对称</li>
+        <li>✅ 期望：<strong>智能排产引擎</strong>——一键排产、自动调优</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 第三章：差异化战略 ==================== -->
+<section id="strategy" class="page-break">
+  <div class="flex items-center gap-4 mb-10">
+    <div class="w-12 h-12 rounded-2xl bg-emerald-600 flex items-center justify-center text-white text-xl font-bold shrink-0">03</div>
+    <div>
+      <h2 class="text-3xl font-bold text-gray-900">差异化战略框架</h2>
+      <p class="text-gray-500 mt-1">Differentiation Strategy Framework</p>
+    </div>
+  </div>
+  <div class="section-divider mb-10"></div>
+
+  <!-- 战略总览 -->
+  <div class="bg-gradient-to-br from-dark-950 to-dark-900 rounded-3xl p-8 md:p-10 text-white mb-10 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-500 rounded-full blur-[120px] opacity-10"></div>
+    <div class="absolute bottom-0 left-0 w-48 h-48 bg-emerald-500 rounded-full blur-[100px] opacity-10"></div>
+    <div class="relative z-10">
+      <h3 class="text-2xl font-bold mb-6">🎯 核心战略定位</h3>
+      <div class="bg-white/10 rounded-2xl p-6 border border-white/10 mb-6">
+        <p class="text-lg font-bold text-center mb-4">从"ERP 工具"到"行业智能体"的跃迁</p>
+        <div class="grid md:grid-cols-3 gap-4 text-center">
+          <div class="p-4 rounded-xl bg-white/5">
+            <div class="text-3xl mb-2">🔧</div>
+            <p class="text-sm font-bold text-brand-300">过去</p>
+            <p class="text-xs text-gray-400 mt-1">功能型工具<br>记录发生了什么</p>
+          </div>
+          <div class="flex items-center justify-center text-2xl text-gray-500">→</div>
+          <div class="p-4 rounded-xl bg-white/5 border border-emerald-500/30">
+            <div class="text-3xl mb-2">🧠</div>
+            <p class="text-sm font-bold text-emerald-300">未来</p>
+            <p class="text-xs text-gray-400 mt-1">行业智能体<br>告诉你该怎么做</p>
+          </div>
+        </div>
+      </div>
+      <p class="text-sm text-gray-300 text-center">不是在原有功能上"加 AI"，而是重新定义产品——让 AI 成为产品的灵魂，而不是装饰。</p>
+    </div>
+  </div>
+
+  <!-- 六大差异化支柱 -->
+  <h3 class="text-xl font-bold text-gray-900 mb-8 flex items-center gap-2"><i class="fas fa-columns text-emerald-500"></i> 六大差异化支柱</h3>
+
+  <!-- 支柱 1 -->
+  <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-6">
+    <div class="bg-gradient-to-r from-brand-600 to-brand-800 p-6 text-white">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-2xl">🧠</div>
+        <div>
+          <h4 class="text-xl font-bold">支柱一：AI 原生架构</h4>
+          <p class="text-brand-200 text-sm mt-1">让智能渗透每一个功能点，而非独立模块</p>
+        </div>
+      </div>
+    </div>
+    <div class="p-6">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h5 class="font-bold text-gray-900 mb-3 text-sm">传统做法 vs 我们的创新</h5>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3 p-3 rounded-lg bg-red-50 border border-red-100">
+              <span class="text-red-500 font-bold text-sm mt-0.5">✗</span>
+              <div><p class="text-sm font-medium text-gray-900">传统：独立的"AI模块"</p><p class="text-xs text-gray-500">功能孤岛，用户不感知价值</p></div>
+            </div>
+            <div class="flex items-start gap-3 p-3 rounded-lg bg-emerald-50 border border-emerald-100">
+              <span class="text-emerald-500 font-bold text-sm mt-0.5">✓</span>
+              <div><p class="text-sm font-medium text-gray-900">创新：AI 渗透每个交互</p><p class="text-xs text-gray-500">输入框智能补全、表单自动填充、异常自动诊断建议</p></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h5 class="font-bold text-gray-900 mb-3 text-sm">具体应用场景</h5>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li class="flex items-start gap-2"><i class="fas fa-check text-brand-500 mt-1 text-xs"></i> 订单录入时 AI 自动匹配历史相似订单、推荐工艺参数</li>
+            <li class="flex items-start gap-2"><i class="fas fa-check text-brand-500 mt-1 text-xs"></i> 排产页面一键"AI排产"，基于产能/物料/交期自动计算</li>
+            <li class="flex items-start gap-2"><i class="fas fa-check text-brand-500 mt-1 text-xs"></i> 预警触发时自动推送3个解决方案 + 预估影响</li>
+            <li class="flex items-start gap-2"><i class="fas fa-check text-brand-500 mt-1 text-xs"></i> 自然语言查询："上个月利华贸易的订单交付率多少？"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 支柱 2 -->
+  <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-6">
+    <div class="bg-gradient-to-r from-emerald-600 to-teal-700 p-6 text-white">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-2xl">👗</div>
+        <div>
+          <h4 class="text-xl font-bold">支柱二：服装行业深度垂直</h4>
+          <p class="text-emerald-200 text-sm mt-1">把行业 Know-how 变成产品壁垒</p>
+        </div>
+      </div>
+    </div>
+    <div class="p-6">
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+          <div class="text-2xl mb-2">📐</div>
+          <h5 class="font-bold text-gray-900 text-sm mb-2">工艺模板库</h5>
+          <p class="text-xs text-gray-600">内置 200+ 服装工艺模板（T恤、外套、裤子、连衣裙...），新建订单时自动匹配，裁剪/缝制/后整参数一键生成</p>
+        </div>
+        <div class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+          <div class="text-2xl mb-2">🧵</div>
+          <h5 class="font-bold text-gray-900 text-sm mb-2">BOM 智能展开</h5>
+          <p class="text-xs text-gray-600">根据款式+尺码+颜色自动计算面料用量、辅料用量，考虑裁剪损耗率，自动生成采购清单</p>
+        </div>
+        <div class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+          <div class="text-2xl mb-2">📊</div>
+          <h5 class="font-bold text-gray-900 text-sm mb-2">行业指标看板</h5>
+          <p class="text-xs text-gray-600">不是通用的"销售额/利润"，而是服装行业专属：万件工时、裁剪损耗率、缝制效率、返工率、车位利用率</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 支柱 3 -->
+  <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-6">
+    <div class="bg-gradient-to-r from-violet-600 to-purple-800 p-6 text-white">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-2xl">🔗</div>
+        <div>
+          <h4 class="text-xl font-bold">支柱三：产业互联网连接器</h4>
+          <p class="text-violet-200 text-sm mt-1">从"内部管理工具"升级为"产业链协同平台"</p>
+        </div>
+      </div>
+    </div>
+    <div class="p-6">
+      <div class="flex items-center justify-center gap-4 flex-wrap mb-6">
+        <div class="px-4 py-2 rounded-full bg-violet-50 border border-violet-200 text-sm font-medium text-violet-700">面料供应商</div>
+        <div class="text-violet-400"><i class="fas fa-exchange-alt"></i></div>
+        <div class="px-4 py-2 rounded-full bg-brand-50 border border-brand-200 text-sm font-bold text-brand-700">Mini ERP</div>
+        <div class="text-brand-400"><i class="fas fa-exchange-alt"></i></div>
+        <div class="px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-sm font-medium text-emerald-700">品牌商/贸易商</div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+          <h5 class="font-bold text-gray-900 text-sm mb-2">🏭 上游连接：面料/辅料供应商</h5>
+          <ul class="text-xs text-gray-600 space-y-1.5">
+            <li>• 采购单自动同步给供应商，供应商在线确认交期</li>
+            <li>• 入库扫码自动对账，减少人工核对</li>
+            <li>• 供应商评级体系：交期、质量、价格自动打分</li>
+          </ul>
+        </div>
+        <div class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+          <h5 class="font-bold text-gray-900 text-sm mb-2">🛒 下游连接：品牌商/贸易商</h5>
+          <ul class="text-xs text-gray-600 space-y-1.5">
+            <li>• 客户自助查单：输入 PO 号实时查看生产进度</li>
+            <li>• 出货自动推送物流信息</li>
+            <li>• 质检报告在线共享，提升信任度</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 支柱 4 -->
+  <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-6">
+    <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-6 text-white">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-2xl">📱</div>
+        <div>
+          <h4 class="text-xl font-bold">支柱四：极致移动体验</h4>
+          <p class="text-rose-200 text-sm mt-1">车间级交互设计，工人 0 培训上手</p>
+        </div>
+      </div>
+    </div>
+    <div class="p-6">
+      <div class="grid md:grid-cols-4 gap-4">
+        <div class="text-center p-4 rounded-xl bg-gray-50 border border-gray-100">
+          <div class="text-3xl mb-2">🎤</div>
+          <h5 class="font-bold text-gray-900 text-sm mb-1">语音录入</h5>
+          <p class="text-xs text-gray-500">"今天裁剪A组完成2450件" → 自动记录</p>
+        </div>
+        <div class="text-center p-4 rounded-xl bg-gray-50 border border-gray-100">
+          <div class="text-3xl mb-2">📷</div>
+          <h5 class="font-bold text-gray-900 text-sm mb-1">拍照质检</h5>
+          <p class="text-xs text-gray-500">拍照上传 → AI 识别缺陷类型 → 自动记录</p>
+        </div>
+        <div class="text-center p-4 rounded-xl bg-gray-50 border border-gray-100">
+          <div class="text-3xl mb-2">📲</div>
+          <h5 class="font-bold text-gray-900 text-sm mb-1">扫码流转</h5>
+          <p class="text-xs text-gray-500">工序卡扫码 → 状态自动更新 → 进度实时同步</p>
+        </div>
+        <div class="text-center p-4 rounded-xl bg-gray-50 border border-gray-100">
+          <div class="text-3xl mb-2">💬</div>
+          <h5 class="font-bold text-gray-900 text-sm mb-1">消息驱动</h5>
+          <p class="text-xs text-gray-500">类微信交互，待办/审批/预警推送到聊天</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 支柱 5 -->
+  <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-6">
+    <div class="bg-gradient-to-r from-amber-500 to-orange-600 p-6 text-white">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-2xl">💎</div>
+        <div>
+          <h4 class="text-xl font-bold">支柱五：数据资产化引擎</h4>
+          <p class="text-amber-200 text-sm mt-1">把工厂运营数据变成可量化的数字资产</p>
+        </div>
+      </div>
+    </div>
+    <div class="p-6">
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="p-4 rounded-xl bg-amber-50 border border-amber-200">
+          <h5 class="font-bold text-gray-900 text-sm mb-2">📈 工厂数字画像</h5>
+          <p class="text-xs text-gray-600">基于历史数据自动生成工厂能力画像：产能、效率、质量、交期——帮助工厂拿到更多订单</p>
+        </div>
+        <div class="p-4 rounded-xl bg-amber-50 border border-amber-200">
+          <h5 class="font-bold text-gray-900 text-sm mb-2">🏦 供应链金融</h5>
+          <p class="text-xs text-gray-600">基于真实生产数据为工厂信用背书，对接金融机构，帮助中小工厂获得低息贷款</p>
+        </div>
+        <div class="p-4 rounded-xl bg-amber-50 border border-amber-200">
+          <h5 class="font-bold text-gray-900 text-sm mb-2">📊 行业基准报告</h5>
+          <p class="text-xs text-gray-600">匿名聚合数据生成行业基准，让每家工厂知道自己的效率处于行业什么水平</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 支柱 6 -->
+  <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-6">
+    <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-6 text-white">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-2xl">🎮</div>
+        <div>
+          <h4 class="text-xl font-bold">支柱六：游戏化运营体系</h4>
+          <p class="text-cyan-200 text-sm mt-1">让枯燥的工厂管理变得有参与感</p>
+        </div>
+      </div>
+    </div>
+    <div class="p-6">
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="p-4 rounded-xl bg-gray-50 border border-gray-100 text-center">
+          <div class="text-3xl mb-2">🏆</div>
+          <h5 class="font-bold text-gray-900 text-sm mb-1">班组排行榜</h5>
+          <p class="text-xs text-gray-500">实时展示各组产量、效率、质量排名，激发良性竞争</p>
+        </div>
+        <div class="p-4 rounded-xl bg-gray-50 border border-gray-100 text-center">
+          <div class="text-3xl mb-2">⭐</div>
+          <h5 class="font-bold text-gray-900 text-sm mb-1">成就徽章</h5>
+          <p class="text-xs text-gray-500">零返工、超额完成、准时交付等成就解锁，增强员工归属感</p>
+        </div>
+        <div class="p-4 rounded-xl bg-gray-50 border border-gray-100 text-center">
+          <div class="text-3xl mb-2">🎯</div>
+          <h5 class="font-bold text-gray-900 text-sm mb-1">目标挑战</h5>
+          <p class="text-xs text-gray-500">月度目标可视化追踪，达成后团队庆祝动画 + 管理层即时激励</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 第四章：18个创新功能点 ==================== -->
+<section id="innovation" class="page-break">
+  <div class="flex items-center gap-4 mb-10">
+    <div class="w-12 h-12 rounded-2xl bg-violet-600 flex items-center justify-center text-white text-xl font-bold shrink-0">04</div>
+    <div>
+      <h2 class="text-3xl font-bold text-gray-900">18 个突破性创新功能方案</h2>
+      <p class="text-gray-500 mt-1">18 Breakthrough Innovation Features</p>
+    </div>
+  </div>
+  <div class="section-divider mb-10"></div>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <!-- 功能 1 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-brand-500 to-violet-500"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-brand-100 flex items-center justify-center text-brand-600"><i class="fas fa-magic"></i></div>
+          <div><span class="text-xs text-brand-600 font-bold">创新 #01</span><h4 class="font-bold text-gray-900 text-sm">AI 智能排产引擎</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">基于多目标优化算法（交期优先/效率优先/成本优先），综合考虑产能、物料、人员技能、设备状态，自动生成最优排产方案。支持拖拽手动微调 + AI 自动纠偏。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">高优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600">3个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 2 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600"><i class="fas fa-robot"></i></div>
+          <div><span class="text-xs text-emerald-600 font-bold">创新 #02</span><h4 class="font-bold text-gray-900 text-sm">对话式数据查询</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">自然语言输入即可查询数据："上月利华贸易的交付率"、"本周哪个组效率最高"、"库存低于安全水位的面料有哪些"。AI 自动解析意图、查询数据库、生成可视化图表。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">高优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600">2个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 3 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-rose-500 to-pink-500"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center text-rose-600"><i class="fas fa-stethoscope"></i></div>
+          <div><span class="text-xs text-rose-600 font-bold">创新 #03</span><h4 class="font-bold text-gray-900 text-sm">智能诊断助手</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">预警不只是"报警"——AI 自动分析根因并推送解决方案。例：订单延期 → 分析瓶颈工序 → 建议加班/外发/调产线 → 一键执行。从"告诉你出问题"到"帮你解决问题"。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">高优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-orange-50 text-orange-600">4个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 4 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-violet-500 to-purple-500"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center text-violet-600"><i class="fas fa-microphone"></i></div>
+          <div><span class="text-xs text-violet-600 font-bold">创新 #04</span><h4 class="font-bold text-gray-900 text-sm">语音驱动的车间交互</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">车间主管对着手机说"今天A组裁了2450件，B组缝了1820件"，系统自动识别并录入产量数据。支持方言识别、模糊纠错、多人语音区分。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">中优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-orange-50 text-orange-600">5个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 5 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-amber-500 to-orange-500"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-600"><i class="fas fa-camera"></i></div>
+          <div><span class="text-xs text-amber-600 font-bold">创新 #05</span><h4 class="font-bold text-gray-900 text-sm">AI 视觉质检</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">手机拍照即可完成质检：自动识别线头、色差、尺寸偏差、缝制缺陷。质检结果自动关联到订单和工序，生成质量追溯报告。大幅降低人工质检成本。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">中优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-red-50 text-red-600">6个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 6 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-cyan-100 flex items-center justify-center text-cyan-600"><i class="fas fa-link"></i></div>
+          <div><span class="text-xs text-cyan-600 font-bold">创新 #06</span><h4 class="font-bold text-gray-900 text-sm">客户自助查单 Portal</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">为品牌商/贸易商提供独立查单入口：输入 PO 号即可查看实时生产进度、质检报告、物流信息。减少 80% 的跟单沟通成本，提升客户满意度和信任度。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">高优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600">2个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 7 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-green-500 to-emerald-500"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center text-green-600"><i class="fas fa-cubes"></i></div>
+          <div><span class="text-xs text-green-600 font-bold">创新 #07</span><h4 class="font-bold text-gray-900 text-sm">智能 BOM + 损耗计算</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">根据款式、尺码、颜色组合自动展开 BOM，结合历史损耗率智能计算实际用量。支持多面料方案对比，自动推荐最优裁剪排料方案，降低 5-15% 的面料浪费。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">高优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-orange-50 text-orange-600">4个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 8 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-pink-500 to-rose-500"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-pink-100 flex items-center justify-center text-pink-600"><i class="fas fa-trophy"></i></div>
+          <div><span class="text-xs text-pink-600 font-bold">创新 #08</span><h4 class="font-bold text-gray-900 text-sm">游戏化班组竞赛</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">实时班组排行榜、效率之星、零返工勋章等游戏化元素。数据自动从产量录入中提取，无需额外操作。管理层可设置月度挑战目标和奖励规则。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">中优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600">3个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 9 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-indigo-500 to-blue-500"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600"><i class="fas fa-project-diagram"></i></div>
+          <div><span class="text-xs text-indigo-600 font-bold">创新 #09</span><h4 class="font-bold text-gray-900 text-sm">供应商协同门户</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">面料/辅料供应商可通过门户查看采购单、确认交期、上传发货信息。采购对账自动化，减少人工核对。供应商评级体系自动打分，辅助采购决策。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">中优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-orange-50 text-orange-600">5个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 10 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-teal-500 to-cyan-500"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-teal-100 flex items-center justify-center text-teal-600"><i class="fas fa-chart-area"></i></div>
+          <div><span class="text-xs text-teal-600 font-bold">创新 #10</span><h4 class="font-bold text-gray-900 text-sm">工厂数字画像报告</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">基于历史生产数据自动生成工厂能力报告：产能曲线、质量评分、交期达成率、成本结构分析。可分享给潜在客户，帮助工厂获取订单。PDF 一键导出。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">中优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600">3个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 11 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-yellow-500 to-amber-500"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-yellow-100 flex items-center justify-center text-yellow-600"><i class="fas fa-brain"></i></div>
+          <div><span class="text-xs text-yellow-600 font-bold">创新 #11</span><h4 class="font-bold text-gray-900 text-sm">经营决策 AI 助手</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">基于全量经营数据，AI 主动推送决策建议：哪些订单利润高值得优先、哪些客户回款风险大、淡季产能如何利用、是否需要扩充产线。从"看报表"到"有军师"。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">高优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-orange-50 text-orange-600">5个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 12 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-red-500 to-rose-500"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center text-red-600"><i class="fas fa-exchange-alt"></i></div>
+          <div><span class="text-xs text-red-600 font-bold">创新 #12</span><h4 class="font-bold text-gray-900 text-sm">柔性插单引擎</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">紧急插单时，AI 自动评估对现有订单的影响（延期风险、产能冲突），推荐最优调整方案。一键确认后自动重新排产、通知相关工序负责人。将"人肉协调"变为"系统调度"。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">高优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-orange-50 text-orange-600">4个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 13 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-lime-500 to-green-500"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-lime-100 flex items-center justify-center text-lime-600"><i class="fas fa-leaf"></i></div>
+          <div><span class="text-xs text-lime-600 font-bold">创新 #13</span><h4 class="font-bold text-gray-900 text-sm">碳足迹追踪</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">自动计算每件产品的碳足迹（面料运输、能耗、废料），生成 ESG 合规报告。满足品牌商日益增长的供应链环保要求，成为获取国际订单的"绿色通行证"。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">中优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-red-50 text-red-600">6个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 14 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-sky-500 to-blue-500"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-sky-100 flex items-center justify-center text-sky-600"><i class="fas fa-puzzle-piece"></i></div>
+          <div><span class="text-xs text-sky-600 font-bold">创新 #14</span><h4 class="font-bold text-gray-900 text-sm">低代码工作流引擎</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">工厂可自定义审批流程、质检标准、报表模板。拖拽式配置，无需开发。支持条件分支、多级审批、自动触发。适配不同工厂的管理差异，减少定制开发成本。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">中优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-orange-50 text-orange-600">5个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 15 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-fuchsia-500 to-pink-500"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-fuchsia-100 flex items-center justify-center text-fuchsia-600"><i class="fas fa-user-shield"></i></div>
+          <div><span class="text-xs text-fuchsia-600 font-bold">创新 #15</span><h4 class="font-bold text-gray-900 text-sm">千人千面角色仪表盘</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">基于角色自动适配界面：厂长看经营全景、计划员看排产甘特图、仓管看出入库流水、车间组长看班组产量。每个角色只看到自己关心的数据，减少信息噪音。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">中优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600">2个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 16 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-gray-700 to-gray-900"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center text-gray-700"><i class="fas fa-qrcode"></i></div>
+          <div><span class="text-xs text-gray-700 font-bold">创新 #16</span><h4 class="font-bold text-gray-900 text-sm">全链路二维码追溯</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">从面料入库到成品出货，每个环节扫码记录。任何一个成品都能追溯到用了哪批面料、谁裁剪的、谁缝制的、质检结果如何。品质问题可精确定位到工序和责任人。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">高优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600">3个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 17 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-orange-500 to-red-500"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center text-orange-600"><i class="fas fa-university"></i></div>
+          <div><span class="text-xs text-orange-600 font-bold">创新 #17</span><h4 class="font-bold text-gray-900 text-sm">供应链金融对接</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">基于真实订单和生产数据，为中小工厂提供信用评估报告，对接银行和金融机构的供应链金融产品。帮助工厂获得订单贷、应收账款融资等服务，解决资金周转难题。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">低优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-red-50 text-red-600">8个月可落地</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 功能 18 -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden card-hover">
+      <div class="h-2 bg-gradient-to-r from-blue-600 to-indigo-600"></div>
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600"><i class="fas fa-plug"></i></div>
+          <div><span class="text-xs text-blue-600 font-bold">创新 #18</span><h4 class="font-bold text-gray-900 text-sm">开放 API 生态</h4></div>
+        </div>
+        <p class="text-xs text-gray-600 mb-3">提供标准化 API，对接主流电商平台（1688、拼多多）、物流系统（顺丰、德邦）、财务软件（用友、金蝶）。成为中小工厂的"数字化中枢"，而非孤立系统。</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">中优先级</span>
+          <span class="px-2 py-0.5 rounded-full bg-orange-50 text-orange-600">6个月可落地</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 第五章：实施路线图 ==================== -->
+<section id="roadmap" class="page-break">
+  <div class="flex items-center gap-4 mb-10">
+    <div class="w-12 h-12 rounded-2xl bg-amber-600 flex items-center justify-center text-white text-xl font-bold shrink-0">05</div>
+    <div>
+      <h2 class="text-3xl font-bold text-gray-900">实施路线图</h2>
+      <p class="text-gray-500 mt-1">Implementation Roadmap · 12 Months</p>
+    </div>
+  </div>
+  <div class="section-divider mb-10"></div>
+
+  <div class="relative pl-16 space-y-10">
+    <div class="timeline-line"></div>
+
+    <!-- Phase 1 -->
+    <div class="relative">
+      <div class="timeline-dot bg-brand-500 border-brand-200"></div>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-gradient-to-r from-brand-600 to-brand-800 p-5 text-white">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-brand-200 text-xs font-bold">PHASE 1</span>
+              <h4 class="text-lg font-bold mt-1">基础智能化 + 核心差异化</h4>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-white/20 text-sm font-medium">Month 1-4</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <p class="text-sm text-gray-600 mb-4">目标：建立差异化认知，让市场看到"这个 ERP 不一样"</p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="space-y-3">
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-brand-50 border border-brand-100">
+                <div class="w-6 h-6 rounded-full bg-brand-500 text-white flex items-center justify-center text-xs font-bold shrink-0">1</div>
+                <div><p class="text-sm font-semibold text-gray-900">对话式数据查询</p><p class="text-xs text-gray-500">自然语言 → 数据图表，降低使用门槛</p></div>
+              </div>
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-brand-50 border border-brand-100">
+                <div class="w-6 h-6 rounded-full bg-brand-500 text-white flex items-center justify-center text-xs font-bold shrink-0">2</div>
+                <div><p class="text-sm font-semibold text-gray-900">客户自助查单 Portal</p><p class="text-xs text-gray-500">PO 号追溯，减少跟单沟通成本</p></div>
+              </div>
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-brand-50 border border-brand-100">
+                <div class="w-6 h-6 rounded-full bg-brand-500 text-white flex items-center justify-center text-xs font-bold shrink-0">3</div>
+                <div><p class="text-sm font-semibold text-gray-900">千人千面角色仪表盘</p><p class="text-xs text-gray-500">角色适配界面，减少信息噪音</p></div>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-brand-50 border border-brand-100">
+                <div class="w-6 h-6 rounded-full bg-brand-500 text-white flex items-center justify-center text-xs font-bold shrink-0">4</div>
+                <div><p class="text-sm font-semibold text-gray-900">AI 智能排产引擎</p><p class="text-xs text-gray-500">多目标优化排产，核心竞争力建设</p></div>
+              </div>
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-brand-50 border border-brand-100">
+                <div class="w-6 h-6 rounded-full bg-brand-500 text-white flex items-center justify-center text-xs font-bold shrink-0">5</div>
+                <div><p class="text-sm font-semibold text-gray-900">智能 BOM + 损耗计算</p><p class="text-xs text-gray-500">服装行业深度功能，建立垂直壁垒</p></div>
+              </div>
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-brand-50 border border-brand-100">
+                <div class="w-6 h-6 rounded-full bg-brand-500 text-white flex items-center justify-center text-xs font-bold shrink-0">6</div>
+                <div><p class="text-sm font-semibold text-gray-900">全链路二维码追溯</p><p class="text-xs text-gray-500">品质追溯能力，满足品牌商要求</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 p-3 rounded-lg bg-gray-50 border border-gray-100">
+            <p class="text-xs text-gray-600"><strong>里程碑：</strong>完成 3 个标杆客户试点，收集反馈迭代产品；发布"AI 智能版"品牌升级</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="relative">
+      <div class="timeline-dot bg-emerald-500 border-emerald-200"></div>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-gradient-to-r from-emerald-600 to-teal-700 p-5 text-white">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-emerald-200 text-xs font-bold">PHASE 2</span>
+              <h4 class="text-lg font-bold mt-1">生态连接 + 体验升级</h4>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-white/20 text-sm font-medium">Month 5-8</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <p class="text-sm text-gray-600 mb-4">目标：从"单机版"进化为"网络版"，构建生态壁垒</p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="space-y-3">
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-emerald-50 border border-emerald-100">
+                <div class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold shrink-0">7</div>
+                <div><p class="text-sm font-semibold text-gray-900">供应商协同门户</p><p class="text-xs text-gray-500">打通上游供应链</p></div>
+              </div>
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-emerald-50 border border-emerald-100">
+                <div class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold shrink-0">8</div>
+                <div><p class="text-sm font-semibold text-gray-900">语音驱动车间交互</p><p class="text-xs text-gray-500">移动端体验革命</p></div>
+              </div>
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-emerald-50 border border-emerald-100">
+                <div class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold shrink-0">9</div>
+                <div><p class="text-sm font-semibold text-gray-900">游戏化班组竞赛</p><p class="text-xs text-gray-500">提升员工参与度</p></div>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-emerald-50 border border-emerald-100">
+                <div class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold shrink-0">10</div>
+                <div><p class="text-sm font-semibold text-gray-900">智能诊断助手</p><p class="text-xs text-gray-500">预警 → 诊断 → 解决方案</p></div>
+              </div>
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-emerald-50 border border-emerald-100">
+                <div class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold shrink-0">11</div>
+                <div><p class="text-sm font-semibold text-gray-900">柔性插单引擎</p><p class="text-xs text-gray-500">紧急订单智能调度</p></div>
+              </div>
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-emerald-50 border border-emerald-100">
+                <div class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold shrink-0">12</div>
+                <div><p class="text-sm font-semibold text-gray-900">低代码工作流引擎</p><p class="text-xs text-gray-500">适配不同工厂管理差异</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 p-3 rounded-lg bg-gray-50 border border-gray-100">
+            <p class="text-xs text-gray-600"><strong>里程碑：</strong>付费客户突破 50 家；完成供应商生态接入；用户日活提升 200%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="relative">
+      <div class="timeline-dot bg-rose-500 border-rose-200"></div>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5 text-white">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-rose-200 text-xs font-bold">PHASE 3</span>
+              <h4 class="text-lg font-bold mt-1">数据资产化 + 行业平台</h4>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-white/20 text-sm font-medium">Month 9-12</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <p class="text-sm text-gray-600 mb-4">目标：从"管理工具"升级为"行业平台"，构建数据壁垒</p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="space-y-3">
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-rose-50 border border-rose-100">
+                <div class="w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center text-xs font-bold shrink-0">13</div>
+                <div><p class="text-sm font-semibold text-gray-900">工厂数字画像报告</p><p class="text-xs text-gray-500">数据资产化，帮助获客</p></div>
+              </div>
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-rose-50 border border-rose-100">
+                <div class="w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center text-xs font-bold shrink-0">14</div>
+                <div><p class="text-sm font-semibold text-gray-900">经营决策 AI 助手</p><p class="text-xs text-gray-500">从"看数据"到"有军师"</p></div>
+              </div>
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-rose-50 border border-rose-100">
+                <div class="w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center text-xs font-bold shrink-0">15</div>
+                <div><p class="text-sm font-semibold text-gray-900">AI 视觉质检</p><p class="text-xs text-gray-500">手机拍照自动质检</p></div>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-rose-50 border border-rose-100">
+                <div class="w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center text-xs font-bold shrink-0">16</div>
+                <div><p class="text-sm font-semibold text-gray-900">碳足迹追踪</p><p class="text-xs text-gray-500">ESG 合规，国际订单入场券</p></div>
+              </div>
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-rose-50 border border-rose-100">
+                <div class="w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center text-xs font-bold shrink-0">17</div>
+                <div><p class="text-sm font-semibold text-gray-900">供应链金融对接</p><p class="text-xs text-gray-500">数据驱动的金融赋能</p></div>
+              </div>
+              <div class="flex items-start gap-3 p-3 rounded-lg bg-rose-50 border border-rose-100">
+                <div class="w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center text-xs font-bold shrink-0">18</div>
+                <div><p class="text-sm font-semibold text-gray-900">开放 API 生态</p><p class="text-xs text-gray-500">成为行业数字化中枢</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 p-3 rounded-lg bg-gray-50 border border-gray-100">
+            <p class="text-xs text-gray-600"><strong>里程碑：</strong>付费客户突破 200 家；行业基准数据库建成；启动供应链金融试点</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 第六章：商业模式 ==================== -->
+<section id="monetization" class="page-break">
+  <div class="flex items-center gap-4 mb-10">
+    <div class="w-12 h-12 rounded-2xl bg-cyan-600 flex items-center justify-center text-white text-xl font-bold shrink-0">06</div>
+    <div>
+      <h2 class="text-3xl font-bold text-gray-900">商业模式创新</h2>
+      <p class="text-gray-500 mt-1">Business Model Innovation</p>
+    </div>
+  </div>
+  <div class="section-divider mb-10"></div>
+
+  <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2"><i class="fas fa-coins text-cyan-500"></i> 从"卖软件"到"卖价值"的定价革命</h3>
+
+  <div class="grid md:grid-cols-3 gap-6 mb-10">
+    <!-- 免费版 -->
+    <div class="bg-white rounded-2xl border-2 border-gray-200 shadow-sm overflow-hidden">
+      <div class="p-6 text-center border-b border-gray-100">
+        <div class="w-14 h-14 rounded-2xl bg-gray-100 flex items-center justify-center text-gray-600 text-2xl mx-auto mb-3">🆓</div>
+        <h4 class="text-lg font-bold text-gray-900">基础版</h4>
+        <p class="text-3xl font-bold text-gray-900 mt-2">免费</p>
+        <p class="text-xs text-gray-500 mt-1">永久免费 · 引流获客</p>
+      </div>
+      <div class="p-6">
+        <ul class="text-sm text-gray-600 space-y-3">
+          <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> 基础订单管理</li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> 简易库存管理</li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> 基础数据看板</li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> 最多 3 用户</li>
+          <li class="flex items-center gap-2 text-gray-400"><i class="fas fa-times text-gray-300 text-xs"></i> AI 功能</li>
+          <li class="flex items-center gap-2 text-gray-400"><i class="fas fa-times text-gray-300 text-xs"></i> 排产引擎</li>
+        </ul>
+        <p class="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded-lg">策略：用免费版快速获客，培养使用习惯，形成数据依赖后自然升级</p>
+      </div>
+    </div>
+
+    <!-- 专业版 -->
+    <div class="bg-white rounded-2xl border-2 border-brand-500 shadow-lg shadow-brand-100 overflow-hidden relative">
+      <div class="absolute top-0 right-0 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">推荐</div>
+      <div class="p-6 text-center border-b border-brand-100 bg-brand-50/50">
+        <div class="w-14 h-14 rounded-2xl bg-brand-100 flex items-center justify-center text-brand-600 text-2xl mx-auto mb-3">⚡</div>
+        <h4 class="text-lg font-bold text-brand-900">专业版</h4>
+        <p class="text-3xl font-bold text-brand-700 mt-2">¥299<span class="text-base font-normal text-brand-400">/月</span></p>
+        <p class="text-xs text-brand-500 mt-1">按工厂计费 · 不限用户数</p>
+      </div>
+      <div class="p-6">
+        <ul class="text-sm text-gray-600 space-y-3">
+          <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> 全部基础版功能</li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> AI 智能排产</li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> 对话式数据查询</li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> 客户自助查单</li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> 智能 BOM 计算</li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> 全链路追溯</li>
+        </ul>
+        <p class="text-xs text-gray-500 mt-4 p-3 bg-brand-50 rounded-lg">策略：核心盈利产品，性价比碾压竞品（竞品同等功能年费 1-3 万）</p>
+      </div>
+    </div>
+
+    <!-- 旗舰版 -->
+    <div class="bg-white rounded-2xl border-2 border-violet-400 shadow-lg shadow-violet-100 overflow-hidden">
+      <div class="p-6 text-center border-b border-violet-100 bg-violet-50/50">
+        <div class="w-14 h-14 rounded-2xl bg-violet-100 flex items-center justify-center text-violet-600 text-2xl mx-auto mb-3">🚀</div>
+        <h4 class="text-lg font-bold text-violet-900">旗舰版</h4>
+        <p class="text-3xl font-bold text-violet-700 mt-2">¥699<span class="text-base font-normal text-violet-400">/月</span></p>
+        <p class="text-xs text-violet-500 mt-1">含供应链协同 + 数据服务</p>
+      </div>
+      <div class="p-6">
+        <ul class="text-sm text-gray-600 space-y-3">
+          <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> 全部专业版功能</li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> 供应商协同门户</li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> 工厂数字画像报告</li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> 经营决策 AI 助手</li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> 供应链金融对接</li>
+          <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> 优先技术支持</li>
+        </ul>
+        <p class="text-xs text-gray-500 mt-4 p-3 bg-violet-50 rounded-lg">策略：高价值客户深度绑定，形成"数据飞轮"效应</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 增值收入 -->
+  <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2"><i class="fas fa-gem text-cyan-500"></i> 增值收入引擎</h3>
+  <div class="grid md:grid-cols-4 gap-4">
+    <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm text-center">
+      <div class="text-3xl mb-2">🏦</div>
+      <h5 class="font-bold text-gray-900 text-sm mb-1">供应链金融分润</h5>
+      <p class="text-xs text-gray-500">每笔贷款收取 0.5-1% 服务费</p>
+      <p class="text-lg font-bold text-emerald-600 mt-2">潜在年收入</p>
+      <p class="text-sm text-gray-600">¥50-200万</p>
+    </div>
+    <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm text-center">
+      <div class="text-3xl mb-2">📊</div>
+      <h5 class="font-bold text-gray-900 text-sm mb-1">行业数据报告</h5>
+      <p class="text-xs text-gray-500">按份出售行业基准报告</p>
+      <p class="text-lg font-bold text-emerald-600 mt-2">潜在年收入</p>
+      <p class="text-sm text-gray-600">¥20-80万</p>
+    </div>
+    <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm text-center">
+      <div class="text-3xl mb-2">🔌</div>
+      <h5 class="font-bold text-gray-900 text-sm mb-1">API 调用计费</h5>
+      <p class="text-xs text-gray-500">超出免费额度按量计费</p>
+      <p class="text-lg font-bold text-emerald-600 mt-2">潜在年收入</p>
+      <p class="text-sm text-gray-600">¥10-50万</p>
+    </div>
+    <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm text-center">
+      <div class="text-3xl mb-2">🎓</div>
+      <h5 class="font-bold text-gray-900 text-sm mb-1">培训与咨询服务</h5>
+      <p class="text-xs text-gray-500">数字化转型咨询 + 培训</p>
+      <p class="text-lg font-bold text-emerald-600 mt-2">潜在年收入</p>
+      <p class="text-sm text-gray-600">¥30-100万</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 第七章：风险控制 ==================== -->
+<section id="risk" class="page-break">
+  <div class="flex items-center gap-4 mb-10">
+    <div class="w-12 h-12 rounded-2xl bg-red-600 flex items-center justify-center text-white text-xl font-bold shrink-0">07</div>
+    <div>
+      <h2 class="text-3xl font-bold text-gray-900">风险控制与应对</h2>
+      <p class="text-gray-500 mt-1">Risk Management & Mitigation</p>
+    </div>
+  </div>
+  <div class="section-divider mb-10"></div>
+
+  <div class="space-y-5">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+      <div class="flex items-center gap-4 p-5 border-b border-gray-100">
+        <div class="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center text-red-600"><i class="fas fa-exclamation-triangle"></i></div>
+        <div class="flex-1">
+          <h4 class="font-bold text-gray-900">风险 1：AI 功能落地效果不达预期</h4>
+          <span class="text-xs text-red-600 font-medium">高风险 · 高影响</span>
+        </div>
+      </div>
+      <div class="p-5 grid md:grid-cols-2 gap-4">
+        <div>
+          <p class="text-sm text-gray-600 mb-2"><strong>表现：</strong>AI 排产不如人工经验、对话查询准确率低、质检识别误判多</p>
+          <p class="text-sm text-gray-600"><strong>根因：</strong>行业数据不足、模型泛化能力弱、用户预期管理不当</p>
+        </div>
+        <div class="bg-emerald-50 rounded-lg p-4 border border-emerald-100">
+          <p class="text-sm font-bold text-emerald-800 mb-2">应对策略</p>
+          <ul class="text-xs text-gray-600 space-y-1.5">
+            <li>• AI 功能标注"Beta"，管理用户预期</li>
+            <li>• 先做"辅助建议"而非"自动决策"，保留人工兜底</li>
+            <li>• 与 3-5 家标杆工厂深度合作，获取高质量训练数据</li>
+            <li>• 采用 RAG 架构，结合行业知识库提升准确率</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+      <div class="flex items-center gap-4 p-5 border-b border-gray-100">
+        <div class="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center text-orange-600"><i class="fas fa-bolt"></i></div>
+        <div class="flex-1">
+          <h4 class="font-bold text-gray-900">风险 2：资源分散，功能做不深</h4>
+          <span class="text-xs text-orange-600 font-medium">中风险 · 高影响</span>
+        </div>
+      </div>
+      <div class="p-5 grid md:grid-cols-2 gap-4">
+        <div>
+          <p class="text-sm text-gray-600 mb-2"><strong>表现：</strong>18 个功能点都想做，每个都做成半吊子</p>
+          <p class="text-sm text-gray-600"><strong>根因：</strong>团队资源有限、优先级判断失误、客户需求驱动功能膨胀</p>
+        </div>
+        <div class="bg-emerald-50 rounded-lg p-4 border border-emerald-100">
+          <p class="text-sm font-bold text-emerald-800 mb-2">应对策略</p>
+          <ul class="text-xs text-gray-600 space-y-1.5">
+            <li>• 严格按 Phase 分阶段执行，Phase 1 只做 6 个核心功能</li>
+            <li>• 每个功能设定"深度标准"：做到 80 分才发布</li>
+            <li>• MVP 快速验证 → 用户反馈 → 迭代优化的敏捷节奏</li>
+            <li>• 建立功能优先级评分模型（用户价值 × 实施难度）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+      <div class="flex items-center gap-4 p-5 border-b border-gray-100">
+        <div class="w-10 h-10 rounded-xl bg-yellow-100 flex items-center justify-center text-yellow-600"><i class="fas fa-money-bill-wave"></i></div>
+        <div class="flex-1">
+          <h4 class="font-bold text-gray-900">风险 3：投入产出周期长，现金流承压</h4>
+          <span class="text-xs text-yellow-600 font-medium">中风险 · 中影响</span>
+        </div>
+      </div>
+      <div class="p-5 grid md:grid-cols-2 gap-4">
+        <div>
+          <p class="text-sm text-gray-600 mb-2"><strong>表现：</strong>研发投入大、免费用户转化率低、付费用户增长慢</p>
+          <p class="text-sm text-gray-600"><strong>根因：</strong>中小工厂付费意愿弱、市场教育成本高</p>
+        </div>
+        <div class="bg-emerald-50 rounded-lg p-4 border border-emerald-100">
+          <p class="text-sm font-bold text-emerald-800 mb-2">应对策略</p>
+          <ul class="text-xs text-gray-600 space-y-1.5">
+            <li>• 免费版降低获客成本，用"数据迁移"锁定用户</li>
+            <li>• Phase 1 优先做能直接带来收入的功能（排产、BOM）</li>
+            <li>• 考虑融资或战略合作，分担研发成本</li>
+            <li>• 设定止损线：12 个月内付费用户 <50 家则调整策略</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+      <div class="flex items-center gap-4 p-5 border-b border-gray-100">
+        <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center text-purple-600"><i class="fas fa-shield-alt"></i></div>
+        <div class="flex-1">
+          <h4 class="font-bold text-gray-900">风险 4：数据安全与隐私合规</h4>
+          <span class="text-xs text-purple-600 font-medium">低风险 · 极高影响</span>
+        </div>
+      </div>
+      <div class="p-5 grid md:grid-cols-2 gap-4">
+        <div>
+          <p class="text-sm text-gray-600 mb-2"><strong>表现：</strong>工厂生产数据泄露、客户信息被滥用、不符合数据安全法</p>
+          <p class="text-sm text-gray-600"><strong>根因：</strong>中小厂商安全投入不足、供应链数据共享边界模糊</p>
+        </div>
+        <div class="bg-emerald-50 rounded-lg p-4 border border-emerald-100">
+          <p class="text-sm font-bold text-emerald-800 mb-2">应对策略</p>
+          <ul class="text-xs text-gray-600 space-y-1.5">
+            <li>• 数据分级管理：核心数据加密存储、共享数据脱敏</li>
+            <li>• 行业基准数据匿名聚合，不暴露单厂信息</li>
+            <li>• 通过等保二级认证，建立安全信任背书</li>
+            <li>• 明确数据所有权归客户，签署数据处理协议</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 第八章：总结 ==================== -->
+<section id="conclusion" class="page-break">
+  <div class="flex items-center gap-4 mb-10">
+    <div class="w-12 h-12 rounded-2xl bg-dark-900 flex items-center justify-center text-white text-xl font-bold shrink-0">08</div>
+    <div>
+      <h2 class="text-3xl font-bold text-gray-900">总结与行动号召</h2>
+      <p class="text-gray-500 mt-1">Conclusion & Call to Action</p>
+    </div>
+  </div>
+  <div class="section-divider mb-10"></div>
+
+  <div class="bg-gradient-to-br from-dark-950 via-dark-900 to-brand-900 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden mb-10">
+    <div class="absolute top-0 right-0 w-80 h-80 bg-brand-500 rounded-full blur-[160px] opacity-10"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500 rounded-full blur-[120px] opacity-10"></div>
+    <div class="relative z-10">
+      <h3 class="text-2xl font-bold mb-6">核心结论</h3>
+      <div class="space-y-4 mb-8">
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 rounded-lg bg-brand-500/20 flex items-center justify-center text-brand-300 shrink-0">1</div>
+          <p class="text-gray-300 leading-relaxed"><strong class="text-white">同质化的根源是"功能思维"。</strong> 当所有竞品都在做同样的功能清单时，差异化只能来自"重新定义问题"——不是"如何做更好的 ERP"，而是"如何让工厂更聪明"。</p>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-300 shrink-0">2</div>
+          <p class="text-gray-300 leading-relaxed"><strong class="text-white">AI 是手段，不是目的。</strong> 用户不在乎你有没有 AI，在乎的是"能不能帮我排好产"、"能不能减少我的沟通成本"、"能不能帮我拿到更多订单"。AI 应该隐形于体验之中。</p>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center text-violet-300 shrink-0">3</div>
+          <p class="text-gray-300 leading-relaxed"><strong class="text-white">生态壁垒 > 功能壁垒。</strong> 当系统连接了供应商、品牌商、金融机构时，用户的迁移成本不再是你收多少钱，而是断开多少连接。这才是真正的护城河。</p>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 rounded-lg bg-rose-500/20 flex items-center justify-center text-rose-300 shrink-0">4</div>
+          <p class="text-gray-300 leading-relaxed"><strong class="text-white">数据是新时代的石油。</strong> 聚合足够多的工厂运营数据后，你就拥有了行业最宝贵的资产——可以做金融、做基准、做预测。这才是从"卖软件"到"建平台"的跃迁。</p>
+        </div>
+      </div>
+      <div class="bg-white/10 rounded-2xl p-6 border border-white/10">
+        <h4 class="font-bold text-lg mb-3">📌 立即行动清单</h4>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="flex items-center gap-2 text-sm text-gray-300"><i class="fas fa-arrow-right text-brand-400 text-xs"></i> 本周：确定 Phase 1 的 6 个核心功能的技术方案</div>
+          <div class="flex items-center gap-2 text-sm text-gray-300"><i class="fas fa-arrow-right text-brand-400 text-xs"></i> 本月：签约 3 家标杆工厂作为深度合作伙伴</div>
+          <div class="flex items-center gap-2 text-sm text-gray-300"><i class="fas fa-arrow-right text-brand-400 text-xs"></i> 第 2 月：完成对话式查询 + 客户自助查单 MVP</div>
+          <div class="flex items-center gap-2 text-sm text-gray-300"><i class="fas fa-arrow-right text-brand-400 text-xs"></i> 第 4 月：发布"Mini ERP AI 智能版"品牌升级</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 最终信息 -->
+  <div class="text-center py-10">
+    <p class="text-gray-400 text-sm mb-2">— 文档结束 —</p>
+    <p class="text-gray-500 text-sm">Mini ERP 差异化创新战略方案 · 2026年5月</p>
+    <p class="text-gray-400 text-xs mt-4">本文档仅供内部战略讨论使用，请勿外传</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 回到顶部 ============ -->
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-brand-600 text-white shadow-lg shadow-brand-200 hover:bg-brand-700 transition-all flex items-center justify-center z-50 no-print">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+// 滚动动画
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('section > div, .card-hover').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+  observer.observe(el);
+});
+
+// 竞争力条动画
+setTimeout(() => {
+  document.querySelectorAll('.competitor-bar').forEach(bar => {
+    const width = bar.style.width;
+    bar.style.width = '0%';
+    setTimeout(() => { bar.style.width = width; }, 300);
+  });
+}, 500);
+</script>
+
+</body>
+</html>

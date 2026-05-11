@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Mini ERP 智能化升级方案 · 从记录工具到智能决策大脑</title>
+  <!-- 沿用项目品牌设计体系 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a',950:'#172554' },
+            accent: { 50:'#fefce8',400:'#facc15',500:'#eab308',600:'#ca8a04' },
+            dark: { 800:'#1e293b',900:'#0f172a',950:'#020617' }
+          },
+          fontFamily: { sans: ['Noto Sans SC','system-ui','sans-serif'] },
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-out',
+            'slide-up': 'slideUp 0.5s ease-out',
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            fadeIn: { '0%':{opacity:'0'}, '100%':{opacity:'1'} },
+            slideUp: { '0%':{opacity:'0',transform:'translateY(20px)'}, '100%':{opacity:'1',transform:'translateY(0)'} },
+            float: { '0%,100%':{transform:'translateY(0px)'}, '50%':{transform:'translateY(-8px)'} }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Noto Sans SC', system-ui, sans-serif; background: #f8fafc; }
+    .glass-card { background: rgba(255,255,255,0.85); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.7); }
+    .gradient-border-card { position: relative; background: white; border-radius: 1.5rem; }
+    .gradient-border-card::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+    .innov-card { transition: all 0.3s ease; }
+    .innov-card:hover { transform: translateY(-6px); box-shadow: 0 30px 45px -15px rgba(0,0,0,0.15); }
+    .accent-glow { box-shadow: 0 0 30px rgba(59,130,246,0.25); }
+    .tech-tag { font-size: 0.7rem; padding: 2px 10px; border-radius: 20px; background: #eff6ff; color: #1d4ed8; }
+  </style>
+</head>
+<body class="antialiased text-gray-800">
+
+  <!-- 导航栏 -->
+  <div class="bg-white/70 backdrop-blur-md border-b border-gray-200 sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center text-white shadow-lg shadow-brand-200">
+          <i class="fas fa-industry"></i>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold text-gray-900">Mini ERP <span class="text-brand-600">智能进化方案</span></h1>
+          <p class="text-xs text-gray-500">从数据记录工具 → 智能决策大脑</p>
+        </div>
+      </div>
+      <div class="hidden sm:flex items-center gap-2 text-sm">
+        <span class="px-3 py-1.5 bg-brand-50 text-brand-700 rounded-full font-medium">V3.0 技术驱动差异化</span>
+        <span class="text-gray-400">|</span>
+        <span class="text-gray-600">生成式AI · 预测维护 · 数字孪生</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 lg:py-12">
+
+    <!-- 引言：重新定义ERP -->
+    <div class="text-center mb-12 animate-fade-in">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 text-brand-700 text-sm font-medium mb-5 border border-brand-200">
+        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse-slow"></span> 突破数据记录瓶颈 · 构建智能决策系统
+      </div>
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4">
+        “懂业务、能预判、好交互” <br class="sm:hidden"> <span class="text-brand-600">新一代生产管家</span>
+      </h2>
+      <p class="text-lg text-gray-500 max-w-3xl mx-auto">
+        同质化的ERP只是数据库的网页版。我们的进化路径：引入<strong class="text-gray-800">生成式AI知识库、预测性维护、数字孪生车间、多智能体协作</strong>等前沿技术，
+        让系统从被动记录进化为主动思考，在六个维度构建难以复制的技术壁垒。
+      </p>
+    </div>
+
+    <!-- 六大创新卡片导航 -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <div class="glass-card rounded-2xl p-6 text-center innov-card">
+        <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fas fa-robot"></i></div>
+        <h3 class="font-bold text-lg text-gray-900 mb-1">生成式AI与知识库</h3>
+        <p class="text-sm text-gray-500">RAG智能问答 · 自动SOP助手</p>
+      </div>
+      <div class="glass-card rounded-2xl p-6 text-center innov-card">
+        <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fas fa-microchip"></i></div>
+        <h3 class="font-bold text-lg text-gray-900 mb-1">预测性维护</h3>
+        <p class="text-sm text-gray-500">设备健康预测 · 动态排产优化</p>
+      </div>
+      <div class="glass-card rounded-2xl p-6 text-center innov-card">
+        <div class="w-14 h-14 rounded-2xl bg-cyan-100 text-cyan-600 flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fas fa-cube"></i></div>
+        <h3 class="font-bold text-lg text-gray-900 mb-1">数字孪生车间</h3>
+        <p class="text-sm text-gray-500">SVG交互地图 · 数据叙事</p>
+      </div>
+      <div class="glass-card rounded-2xl p-6 text-center innov-card">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fas fa-layer-group"></i></div>
+        <h3 class="font-bold text-lg text-gray-900 mb-1">垂直行业深耕</h3>
+        <p class="text-sm text-gray-500">材料追溯 · 低代码定制</p>
+      </div>
+      <div class="glass-card rounded-2xl p-6 text-center innov-card">
+        <div class="w-14 h-14 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fas fa-network-wired"></i></div>
+        <h3 class="font-bold text-lg text-gray-900 mb-1">Agent协作架构</h3>
+        <p class="text-sm text-gray-500">多智能体 · 自动采购草案</p>
+      </div>
+      <div class="glass-card rounded-2xl p-6 text-center innov-card">
+        <div class="w-14 h-14 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fas fa-puzzle-piece"></i></div>
+        <h3 class="font-bold text-lg text-gray-900 mb-1">商业模式创新</h3>
+        <p class="text-sm text-gray-500">乐高订阅 · 离线私有部署</p>
+      </div>
+    </div>
+
+    <!-- 详细方案区 -->
+    <div class="space-y-8">
+
+      <!-- 创新1：生成式AI与知识库 -->
+      <div class="gradient-border-card overflow-hidden animate-slide-up">
+        <div class="bg-white p-6 sm:p-8">
+          <div class="flex flex-wrap items-start gap-5">
+            <div class="w-16 h-16 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-3xl shrink-0">🧠</div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-2xl font-bold text-gray-900 mb-1">1. 深度集成生成式 AI 与知识库</h3>
+              <p class="text-gray-500 mb-6">让ERP像专家一样解释数据，而非仅仅展示表格。</p>
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div class="bg-purple-50/50 rounded-xl p-5 border border-purple-100">
+                  <div class="flex items-center gap-2 mb-2"><i class="fas fa-search text-purple-600"></i><span class="font-semibold text-gray-900">💬 RAG智能报表分析</span></div>
+                  <p class="text-sm text-gray-600">直接提问“为什么上周裁剪进度落后？”，系统通过检索增强生成，自动关联订单变更、设备停机记录、人员出勤数据，输出图文并茂的原因总结。</p>
+                  <span class="tech-tag">RAG</span>
+                  <span class="tech-tag ml-1">语义理解</span>
+                </div>
+                <div class="bg-purple-50/50 rounded-xl p-5 border border-purple-100">
+                  <div class="flex items-center gap-2 mb-2"><i class="fas fa-book-open text-purple-600"></i><span class="font-semibold text-gray-900">📘 自动化SOP助手</span></div>
+                  <p class="text-sm text-gray-600">将工艺手册转化为交互式问答。新员工语音询问“如何操作粘衬机？”，系统即刻给出步骤，并自动生成简短动画或图解卡片。</p>
+                  <span class="tech-tag">生成式AI</span>
+                  <span class="tech-tag ml-1">多模态</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 创新2：预测性维护 -->
+      <div class="gradient-border-card overflow-hidden animate-slide-up">
+        <div class="bg-white p-6 sm:p-8">
+          <div class="flex flex-wrap items-start gap-5">
+            <div class="w-16 h-16 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-3xl shrink-0">⚙️</div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-2xl font-bold text-gray-900 mb-1">2. 从“结果记录”转向“预测性维护”</h3>
+              <p class="text-gray-500 mb-6">让停机成为历史，把排产做到实时最优。</p>
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div class="bg-amber-50/50 rounded-xl p-5 border border-amber-100">
+                  <div class="flex items-center gap-2 mb-2"><i class="fas fa-heartbeat text-amber-600"></i><span class="font-semibold text-gray-900">📈 设备健康预测</span></div>
+                  <p class="text-sm text-gray-600">轻量级ML模型分析设备振动、温度、历史故障数据，在故障前48小时发出预警，并自动生成维修工单，真正迈向“零停机”。</p>
+                  <span class="tech-tag">异常检测</span>
+                  <span class="tech-tag ml-1">ML引擎</span>
+                </div>
+                <div class="bg-amber-50/50 rounded-xl p-5 border border-amber-100">
+                  <div class="flex items-center gap-2 mb-2"><i class="fas fa-random text-amber-600"></i><span class="font-semibold text-gray-900">🔄 动态排产优化</span></div>
+                  <p class="text-sm text-gray-600">基于启发式算法，秒级响应订单插单、原料延迟、设备异常，自动重排生产计划并推送至各工位，确保交期达成率最大化。</p>
+                  <span class="tech-tag">强化学习</span>
+                  <span class="tech-tag ml-1">实时优化</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 创新3：数字孪生与可视化 -->
+      <div class="gradient-border-card overflow-hidden animate-slide-up">
+        <div class="bg-white p-6 sm:p-8">
+          <div class="flex flex-wrap items-start gap-5">
+            <div class="w-16 h-16 rounded-2xl bg-cyan-100 text-cyan-600 flex items-center justify-center text-3xl shrink-0">🌀</div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-2xl font-bold text-gray-900 mb-1">3. 极致的可视化与数字孪生</h3>
+              <p class="text-gray-500 mb-6">让车间在屏幕上活起来，每一台设备都可交互。</p>
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div class="bg-cyan-50/50 rounded-xl p-5 border border-cyan-100">
+                  <div class="flex items-center gap-2 mb-2"><i class="fas fa-map-marked-alt text-cyan-600"></i><span class="font-semibold text-gray-900">🗺️ SVG交互式车间地图</span></div>
+                  <p class="text-sm text-gray-600">基于矢量图的车间平面图，可无级缩放。点击任意机器图标，弹出其实时功耗、当前加工订单、操作员、效率曲线，犹如数字孪生驾驶舱。</p>
+                </div>
+                <div class="bg-cyan-50/50 rounded-xl p-5 border border-cyan-100">
+                  <div class="flex items-center gap-2 mb-2"><i class="fas fa-chart-line text-cyan-600"></i><span class="font-semibold text-gray-900">🎬 数据叙事短视频</span></div>
+                  <p class="text-sm text-gray-600">每周一自动生成生产周报短视频，包含关键KPI动画、异常标注、对比趋势，管理者3分钟掌握全局，告别冗长的Excel分析。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 创新4：垂直行业深耕 -->
+      <div class="gradient-border-card overflow-hidden animate-slide-up">
+        <div class="bg-white p-6 sm:p-8">
+          <div class="flex flex-wrap items-start gap-5">
+            <div class="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl shrink-0">🎯</div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-2xl font-bold text-gray-900 mb-1">4. 垂直化与场景化深耕</h3>
+              <p class="text-gray-500 mb-6">不做“样样通样样松”，而是成为细分行业的专家系统。</p>
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div class="bg-emerald-50/50 rounded-xl p-5 border border-emerald-100">
+                  <div class="flex items-center gap-2 mb-2"><i class="fas fa-barcode text-emerald-600"></i><span class="font-semibold text-gray-900">🔍 全链路材料追溯</span></div>
+                  <p class="text-sm text-gray-600">针对精密加工或食品包装行业，提供批次级、单品级追溯。从供应商原料批到成品出货，任意环节可正向追踪、反向溯源。</p>
+                </div>
+                <div class="bg-emerald-50/50 rounded-xl p-5 border border-emerald-100">
+                  <div class="flex items-center gap-2 mb-2"><i class="fas fa-paint-brush text-emerald-600"></i><span class="font-semibold text-gray-900">🧩 低代码自定义工厂</span></div>
+                  <p class="text-sm text-gray-600">车间主任可通过拖拽方式自定义审批流、质检表单、工序看板，无需编写代码。系统适应工厂快速变化的流程，而非相反。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 创新5：Agent架构 -->
+      <div class="gradient-border-card overflow-hidden animate-slide-up">
+        <div class="bg-white p-6 sm:p-8">
+          <div class="flex flex-wrap items-start gap-5">
+            <div class="w-16 h-16 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-3xl shrink-0">🤖</div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-2xl font-bold text-gray-900 mb-1">5. 跨平台协同与 Agent 架构</h3>
+              <p class="text-gray-500 mb-6">系统不再是单体，而是一群互相协作的智能体。</p>
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div class="bg-rose-50/50 rounded-xl p-5 border border-rose-100">
+                  <div class="flex items-center gap-2 mb-2"><i class="fas fa-mobile-screen-button text-rose-600"></i><span class="font-semibold text-gray-900">📱 移动端AI视觉</span></div>
+                  <p class="text-sm text-gray-600">手机摄像头扫描即可完成零件计数、表面缺陷检测、标签OCR识别。边缘计算确保离线环境也能快速响应。</p>
+                </div>
+                <div class="bg-rose-50/50 rounded-xl p-5 border border-rose-100">
+                  <div class="flex items-center gap-2 mb-2"><i class="fas fa-users-cog text-rose-600"></i><span class="font-semibold text-gray-900">🤝 多智能体协作</span></div>
+                  <p class="text-sm text-gray-600">“订单Agent”发现库存不足时，自动与“采购Agent”协商，生成采购合同草案并推送给审批人，实现从预警到执行的闭环。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 创新6：商业模式 -->
+      <div class="gradient-border-card overflow-hidden animate-slide-up">
+        <div class="bg-white p-6 sm:p-8">
+          <div class="flex flex-wrap items-start gap-5">
+            <div class="w-16 h-16 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-3xl shrink-0">💎</div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-2xl font-bold text-gray-900 mb-1">6. 商业模式与部署创新</h3>
+              <p class="text-gray-500 mb-6">降低门槛，消除工厂对数据安全的顾虑。</p>
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div class="bg-indigo-50/50 rounded-xl p-5 border border-indigo-100">
+                  <div class="flex items-center gap-2 mb-2"><i class="fas fa-cubes text-indigo-600"></i><span class="font-semibold text-gray-900">🧱 乐高式模块订阅</span></div>
+                  <p class="text-sm text-gray-600">客户可按需选购“订单管理”、“设备监控”、“AI排产”等独立模块，自由组合，用多少买多少，极大降低中小企业入场成本。</p>
+                </div>
+                <div class="bg-indigo-50/50 rounded-xl p-5 border border-indigo-100">
+                  <div class="flex items-center gap-2 mb-2"><i class="fas fa-server text-indigo-600"></i><span class="font-semibold text-gray-900">🏢 离线私有部署方案</span></div>
+                  <p class="text-sm text-gray-600">针对网络不稳定或数据敏感的工厂，提供单机版或局域网同步方案。所有数据留在厂内，同时享受智能功能。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 总结与未来愿景 -->
+    <div class="mt-12 text-center bg-gradient-to-br from-brand-700 to-brand-900 rounded-3xl p-8 lg:p-12 text-white shadow-2xl accent-glow animate-fade-in">
+      <div class="max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 text-white/90 text-sm mb-6 border border-white/20">
+          <i class="fas fa-rocket"></i> 未来已来
+        </div>
+        <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+          下一代 Mini ERP 不是网页，<br>而是<span class="text-accent-400">“生产智能体”</span>
+        </h2>
+        <p class="text-lg text-brand-100 mb-8 max-w-2xl mx-auto">
+          当竞争对手还在比拼功能数量时，我们已经通过<strong class="text-white">生成式AI、预测模型、数字孪生和Agent架构</strong>，
+          构筑了一个懂业务、能预判、会交互的生产管家。这不仅是一套软件，更是工厂的智能决策中枢。
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <div class="bg-white/10 backdrop-blur-md rounded-xl px-6 py-4 text-left">
+            <p class="text-2xl font-bold">80%</p>
+            <p class="text-xs text-white/70">报表分析时间缩短</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md rounded-xl px-6 py-4 text-left">
+            <p class="text-2xl font-bold">0停机</p>
+            <p class="text-xs text-white/70">预测性维护目标</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md rounded-xl px-6 py-4 text-left">
+            <p class="text-2xl font-bold">3分钟</p>
+            <p class="text-xs text-white/70">周报视频生成</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md rounded-xl px-6 py-4 text-left">
+            <p class="text-2xl font-bold">∞</p>
+            <p class="text-xs text-white/70">低代码扩展能力</p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <span class="inline-block px-8 py-3.5 bg-white text-brand-700 font-bold rounded-xl shadow-lg hover:bg-gray-100 transition-colors cursor-pointer">
+            探索智能进化路线 <i class="fas fa-arrow-right ml-2"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 text-center text-gray-400 text-sm border-t border-gray-200 pt-8">
+      <p>© 2026 Mini ERP 智能创新实验室 · 基于生成式AI与预测性维护的下一代制造管理系统</p>
+      <p class="mt-1">让系统学会思考，让工厂预见未来。</p>
+    </div>
+  </main>
+</body>
+</html>
